@@ -1,21 +1,33 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+import axios from 'axios';
+
+export default class PersonList extends React.Component {
+    state = {
+        persons: []
+    }
+
+    componentDidMount() {
+        //  axios.get(`https://jsonplaceholder.typicode.com/users`)
+        axios.get('http://localhost:3001', {
+            headers: {
+                'Access-Control-Allow-Origin': '*'
+            }
+        }) //hearder not needed
+            .then(res => {
+                const persons = res.data;
+                console.log(persons);
+                this.setState({persons});
+            }).catch(e => console.log(e))
+    }
+
+    render() {
+        return (
+            <ul>
+                "dfsfdf"
+            </ul>
+        )
+        //       {this.state.persons.map(person => <li>{person.name}</li>)}
+
+    }
 }
-
-export default App;

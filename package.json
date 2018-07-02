@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "client-install": "npm install --prefix client",
     "client": "npm start --prefix client",
-    "dev": "concurrently \"node server.js\" \" npm run client\""
+    "dev": "concurrently \"node server.js\" \" npm run client\"",
+    "start": "./node_modules/.bin/concurrently \"node server.js\" \"npm run client\""
   },
   "author": "khizr ali pardhan",
   "license": "ISC",
