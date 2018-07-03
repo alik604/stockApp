@@ -73,40 +73,24 @@ app.use(bp.urlencoded({extended: false}));
 app.get('/', function (req, res) {
     company = updateData("AAPL");
     setTimeout(function () {
-        res.status(200).send( {
-            MyOBJ: company.data
+        res.status(200).send({
+            MyallData: company.data
         });
     }, 1000);
 
 
 });
 
-app.get('/add', function (req, res) {
-
-    company = updateData("AAPL");
-
-
-
+app.get('/MSFT', function (req, res) {
+    company = updateData("MSFT");
     setTimeout(function () {
-        res.status(200).send( {
-            MyOBJ: company.data
-        });
+        res.json(company.data);
     }, 1000);
 
-});
 
+});
 
 app.listen(3001); //main
-
-//
-var people = updateData("MSFT");
-module.exports = function (req, res) {
-    res.writeHead(200, {
-        'Content-Type': 'text/json'
-    });
-    res.write(JSON.stringify(people));
-    res.end();
-};
 
 
 //
