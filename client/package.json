@@ -7,7 +7,10 @@
     "@material-ui/icons": "^1.1.0",
     "axios": "^0.18.0",
     "bootstrap": "^4.1.1",
+    "chart.js": "^2.7.2",
+    "highcharts": "^6.1.1",
     "react": "^16.4.1",
+    "react-chartjs-2": "^2.7.2",
     "react-dom": "^16.4.1",
     "react-scripts": "1.1.4",
     "reactstrap": "^6.2.0"
