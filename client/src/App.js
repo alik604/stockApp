@@ -12,58 +12,21 @@ export default class PersonList extends React.Component {
 
         super();
         this.state = {
-            chartData: {}
+
         }
 
     }
 
 
-    componentWillMount() {
-        this.getChartData();
-    }
+    // componentWillMount() {
+    //     var data = this.getChartData();
+    //
+    //     this.setState({chartData: data});
+    //
+    // }
 
 
-    getChartData() {
-        var chartData = "error";
-        var stringArryOfDates = [];
-        var stringArryOfPrices = [];
 
-        fetch('Http://localhost:3001/MSFT')
-            .then(res => res.json())
-            .then(chartData => {
-                //
-                for (var i = 0; i < chartData.length; i++) {
-                    stringArryOfDates[i] = chartData[0].date;
-                    stringArryOfPrices[i] = chartData[0].close
-                }
-                console.log(stringArryOfPrices);
-            });
-        //
-
-        this.setState({
-            chartData: {
-                labels: ['Boston', 'Worcester', 'Springfield', 'Lowell', 'Cambridge', 'New Bedford'],
-                datasets: [
-                    {
-                        label: false,
-                        data: [
-                            617594,
-                            181045,
-                            153060,
-                            106519,
-                            105162,
-                            95072
-                        ],
-                        backgroundColor: [
-                            'rgba(125, 255, 132, 0.6)'
-                        ]
-                    }
-                ]
-            }
-        });
-
-
-    }
 
 
     /*
@@ -108,8 +71,16 @@ export default class PersonList extends React.Component {
         }
     */
     render() {
-        //alt https://reactstrap.github.io/components/navbar/
-
+        //alt nav bar  https://reactstrap.github.io/components/navbar/
+        //FAB https://stackoverflow.com/questions/35828991/make-material-ui-reactjs-floatingactionbutton-float
+        const style = {
+            margin: 0,
+            top: 'auto',
+            right: 20,
+            bottom: 20,
+            left: 'auto',
+            position: 'fixed',
+        };
         return (
             <div>
                 <AppBar/>
@@ -126,8 +97,8 @@ export default class PersonList extends React.Component {
 
                 <AListing/>
 
-                <Achart chartData={this.state.chartData}/>
-
+                <Achart />
+                <Button variant="fab" color="primary" icon='home' style={style}> </Button>
             </div>
         );
 

@@ -14,7 +14,7 @@ class AListing extends Component {
         fetch('Http://localhost:3001/MSFT')
             .then(res => res.json())
             .then(stocks => this.setState({stocks},
-                () => console.log('stocks fetched', stocks)));
+                () => console.log('stocks fetched (AListing.js)', stocks)));
     }
 
     render() {

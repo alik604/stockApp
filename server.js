@@ -30,7 +30,7 @@ var updateData = function (stockSymbol) {
     var request = https.request({
         method: "GET",
         host: "api.intrinio.com",
-        path: "/prices?identifier=" + stockSymbol + "&start_date=2018-05-12&end_date=2018-05-16&frequency=daily&sort_order=des",
+        path: "/prices?identifier=" + stockSymbol + "&start_date=2018-05-8&end_date=2018-05-15&frequency=daily&sort_order=des",
         /*companies?ticker=AAPL  ||||||  data_point?ticker=AAPL&item=marketcap */
         headers: {
             "Authorization": auth

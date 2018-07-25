@@ -1,6 +1,38 @@
-canvas{
+canvas {
 
-    width:750px !important;
-    height:500px !important;
+    width: 700px !important;
+    height: 400px !important;
 
+}
+
+.left {
+    margin-left: 20px;
+    float: left;
+
+}
+
+.buttonGroupLeft {
+
+}
+
+.right {
+    margin-left: 20px;
+    float: left;
+
+}
+
+.wrapper {
+
+    padding-right: 5px;
+    margin-right: 50px;
+}
+.wrapperr {
+float: none;
+    padding-right: 5px;
+    margin-right: 50px;
+}
+.t {
+    float: left;
+    border-left: 1px solid #000;
+    height: 200px;
 }
