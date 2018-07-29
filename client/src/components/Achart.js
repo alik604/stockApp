@@ -7,11 +7,10 @@ import './Achart.css';
 
 class Achart extends Component {
 
-    constructor() {
-        super();
-
+    constructor(props) {
+        super(props);
         this.state = {
-            chartDataOBJ: []
+            chartDataOBJ: {}
         };
 
 
@@ -26,64 +25,82 @@ class Achart extends Component {
 
     componentDidMount() {
 
-        var data = this.getChartData();
-        console.log(data);
-        data = this.modData(data);
-        console.log(data);
 
-        this.setState({chartDataOBJ: data});
+        //var data = this.modData();
+
+        // console.log(obj.prices);
+
+//data.labels = obj.dates;
+
 
         // fetch('Http://localhost:3001/MSFT')
         //     .then(res => res.json())
         //     .then(stocks => this.setState({stocks},
         //         () => console.log('stocks fetched', stocks)));
-    }
 
-    modData(dataOBJ) {
-        var chartData = "error"; //TODO
-        var stringArryOfDates = [];
-        var stringArryOfPrices = [];
+
+        //  var chartData = "error"; //TODO
+        let stringArryOfDates = [];
+        let arryOfPrices = [];
 
         fetch('Http://localhost:3001/MSFT')
             .then(res => res.json())
             .then(chartData => {  //chartData is the returned OBJ. contais all the shit
                 // console.log(chartData)
-                for (var i = 0; i < chartData.length; i++) {// TODO fix this shit with a map
-                    stringArryOfDates[i] = '' + chartData[i].date;
-                    stringArryOfPrices[i] = chartData[i].close
-                }
-                //   console.log(stringArryOfPrices); //first message
+
+                chartData.forEach(element => {
+                    stringArryOfDates.push('' + element.date);
+                    arryOfPrices.push(element.close);
+                });
+
+
+                // for (var i = 0; i < chartData.length; i++) {// TODO fix this shit with a map
+                //     stringArryOfDates[i] = '' + chartData[i].date;
+                //     arryOfPrices[i] = chartData[i].close
+                // }
+                //console.log(arryOfPrices); //first message
+                // console.log(stringArryOfDates.reverse()); //first message
             });
-        //
+        // console.log((stringArryOfDates).length);
+        // console.log(arryOfPrices); //first message
+        //  console.log(stringArryOfDates.reverse()); //first message
 
-        //dataOBJ.labels = stringArryOfDates;
-        // dataOBJ.datasets[0].data = stringArryOfPrices;
-        return dataOBJ;
+        this.setState({
+            chartDataOBJ: {
+                labels: stringArryOfDates,
+                datasets: [
+                    {
+                        label: 'My First dataset',
+                        fill: false,
+                        lineTension: 0.1,
+                        backgroundColor: 'rgba(75,192,192,0.4)',
+                        borderColor: 'rgba(75,192,192,1)',
+                        borderCapStyle: 'butt',
+                        borderDash: [],
+                        borderDashOffset: 0.0,
+                        borderJoinStyle: 'miter',
+                        pointBorderColor: 'rgba(75,192,192,1)',
+                        pointBackgroundColor: '#fff',
+                        pointBorderWidth: 1,
+                        pointHoverRadius: 5,
+                        pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+                        pointHoverBorderColor: 'rgba(220,220,220,1)',
+                        pointHoverBorderWidth: 2,
+                        pointRadius: 1,
+                        pointHitRadius: 10,
+                        data: arryOfPrices   //[1, 3, 2, 4, 5, 2, 3]
+                    }
+                ]
+            }
+
+        });
+
     }
 
-    getChartData() {
-        return {
-            labels: ['mcDicks', 'Worcester', 'Springfield', 'Lowell', 'Cambridge', 'New Bedford'],
-            datasets: [
-                {
-                    label: false,
-                    data:
-                        [
-                            617594,
-                            181045,
-                            153060,
-                            106519,
-                            105162,
-                            95072
-                        ]
-                    ,
-                    backgroundColor: [
-                        'rgba(125, 255, 132, 0.6)'
-                    ]
-                }
-            ]
-        };
+    modData() {
+
     }
+
 
     render() {
 
@@ -106,13 +123,14 @@ data view
 
         //btn group https://reactstrap.github.io/components/button-group/
         //TODO convert to radio buttons http://reactstrap.github.io/components/buttons/
-        if (this.state.chartDataOBJ.length == 0) {
-            // console.log("not loaded!!!!")
+        if (this.state.chartDataOBJ == null) {
+            console.log("not loaded!!!!")
             // console.log(this.state.chartDataOBJ)
             return <div/>
         }
-        // console.log("here!!");
-        // console.log(this.state.chartDataOBJ);
+        console.log("loaded!!");
+        console.log("chartDataOBJ: ");
+        console.log(this.state.chartDataOBJ);
         return (
 
 
@@ -145,19 +163,7 @@ data view
                     < div className="chart">
                         < Line
                             data={this.state.chartDataOBJ}
-                            options={
-                                {
-                                    responsive: true,
-                                    title:
-                                        {
-                                            display: true,
-                                            text:
-                                                'stock: TODO',
-                                            fontSize:
-                                                50
-                                        }
-                                }
-                            }
+
                         />
 
                     </div>

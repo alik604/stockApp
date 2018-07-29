@@ -1,6 +1,9 @@
 var company;
 
 const express = require('express');
+const mongoose = require('mongoose');
+const passport = require('passport');
+
 const path = require('path');
 const bp = require('body-parser');
 app = express();
@@ -30,7 +33,7 @@ var updateData = function (stockSymbol) {
     var request = https.request({
         method: "GET",
         host: "api.intrinio.com",
-        path: "/prices?identifier=" + stockSymbol + "&start_date=2018-05-8&end_date=2018-05-15&frequency=daily&sort_order=des",
+        path: "/prices?identifier=" + stockSymbol + "&start_date=2018-05-8&end_date=2018-05-16&frequency=daily&sort_order=des",
         /*companies?ticker=AAPL  ||||||  data_point?ticker=AAPL&item=marketcap */
         headers: {
             "Authorization": auth
@@ -61,15 +64,31 @@ var updateData = function (stockSymbol) {
 }
 
 company = updateData("AAPL");
-//----------------------------------
-//guide https://www.youtube.com/watch?v=gnsO8-xJ8rs
-//51:00 for mongoDB tut
-
+// ----------------------------------
 app.set('views', path.join(__dirname, 'views'));
 app.use(bp.json());
 app.use(bp.urlencoded({extended: false}));
 
+// TODO
 
+// DB Config
+const db = require('./config/keys').mongoURI;
+
+// Connect to MongoDB
+mongoose
+    .connect(db)
+    .then(() => console.log('MongoDB Connected'))
+    .catch(err => console.log(err));
+
+// Passport middleware
+app.use(passport.initialize());
+
+// Passport Config
+require('./config/passport')(passport);
+
+
+
+//--------------
 app.get('/', function (req, res) {
     company = updateData("AAPL");
     setTimeout(function () {
