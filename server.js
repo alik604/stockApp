@@ -1,3 +1,6 @@
+//https://mlab.com/databases/thisone/collections/users
+
+
 var company;
 
 
@@ -125,7 +128,6 @@ app.get('/', function (req, res) {
     }, 1000);
 
 
-
 });
 
 app.get('/MSFT', function (req, res) {
@@ -145,8 +147,6 @@ app.get(':id', function (req, res) {
         console.log(dataWithAxios);
     }, 1000);
 });
-
-
 
 
 // getDataWithAxios("AAPL");
