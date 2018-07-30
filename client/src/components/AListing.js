@@ -14,13 +14,26 @@ class AListing extends Component {
         fetch('Http://localhost:3001/MSFT')
             .then(res => res.json())
             .then(stock => {
+                    //  console.log(stock["Time Series (Daily)"]);
 
 
+                    var details = [];
+                    var dates = [];
+
+                    for (var x in stock["Time Series (Daily)"]) {
+                        details.push(parseFloat((stock["Time Series (Daily)"][x]['4. close'])));
+                        dates.push(x);
+                    }
+
+                    console.log(details);
+                    console.log(dates);
+
+                    var matrix = [dates, details];
+                    var myStock = stock["Time Series (Daily)"];
                     this.setState(
-                        {stock}, () => {
-                            // console.log('stocks fetched (AListing.js)', stock)}
-                        }
+                        {myStock}
                     )
+
                 }
             );
     }
@@ -30,14 +43,11 @@ class AListing extends Component {
             <div>
                 <h2>MSFT stock</h2>
                 <ul>
-                    {this.state.stock.foreach(stock => {
 
-
-                        for (var x in stock["Time Series (Daily)"]) {
-
-                            <li> on {x}, closed at {parseFloat((stock["Time Series (Daily)"][x]['4. close']))}</li>
+                    {this.state.myStock.forEach(stock => {
+                            console.log(stock);   //  <li key={stock.date}>on {stock.date}, closed at {stock.detail}</li>
                         }
-                    })}
+                    )}
 
                 </ul>
             </div>

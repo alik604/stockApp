@@ -1,8 +1,8 @@
 import React from 'react';
-import axios from 'axios';
+//import axios from 'axios';
 //import {Button} from 'reactstrap';
 import Button from '@material-ui/core/Button';
-import AListing from './components/AListing';
+//import AListing from './components/AListing';
 import AppBar from './components/AppBar';
 import Achart from './components/Achart';
 
@@ -11,9 +11,7 @@ export default class PersonList extends React.Component {
     constructor() {
 
         super();
-        this.state = {
-
-        }
+        this.state = {}
 
     }
 
@@ -24,9 +22,6 @@ export default class PersonList extends React.Component {
     //     this.setState({chartData: data});
     //
     // }
-
-
-
 
 
     /*
@@ -81,6 +76,7 @@ export default class PersonList extends React.Component {
             left: 'auto',
             position: 'fixed',
         };
+        //    <AListing/>
         return (
             <div>
                 <AppBar/>
@@ -95,9 +91,8 @@ export default class PersonList extends React.Component {
                 </Button>
                 <button className="btn btn-danger float-right">Example Button floated right</button>
 
-                <AListing/>
 
-                <Achart />
+                <Achart/>
                 <Button variant="fab" color="primary" icon='home' style={style}> </Button>
             </div>
         );
