@@ -1,26 +1,26 @@
 import React, {Component} from 'react';
 import {Line} from 'react-chartjs-2';
-import {Button, ButtonGroup, ButtonToolbar, Badge} from 'reactstrap';
+import {Badge, Button, ButtonGroup, ButtonToolbar} from 'reactstrap';
 
 
 import './Achart.css';
 
 class Achart extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            chartDataOBJ: null
-        };
-
-
-    }
-
     static defaultProps = {
         displayTitle: true,
         displayLegend: false,
         legendPosition: 'right',
         stock: 'XYZ'
+    }
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            chartDataOBJ: {}
+        };
+
+
     }
 
     componentDidMount() {
@@ -46,39 +46,38 @@ class Achart extends Component {
                 //           stringArryOfDates.push('' + element.date);
                 //           arryOfPrices.push(element.close);
                 //        });
-               // console.log(typeof(closing[2]))
+
+                this.setState({
+                    chartDataOBJ: {
+                        labels: date, //["2","2","2","2","4","1"]
+                        datasets: [
+                            {
+                                label: 'MSFT',
+                                fill: false,
+                                lineTension: 0.1,
+                                backgroundColor: 'rgba(75,192,192,0.4)',
+                                borderColor: 'rgba(75,192,192,1)',
+                                borderCapStyle: 'butt',
+                                borderDash: [],
+                                borderDashOffset: 0.0,
+                                borderJoinStyle: 'miter',
+                                pointBorderColor: 'rgba(75,192,192,1)',
+                                pointBackgroundColor: '#fff',
+                                pointBorderWidth: 1,
+                                pointHoverRadius: 5,
+                                pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+                                pointHoverBorderColor: 'rgba(220,220,220,1)',
+                                pointHoverBorderWidth: 2,
+                                pointRadius: 1,
+                                pointHitRadius: 10,
+                                data: closing //[1, 3, 2, 4, 5, 2, 3]
+                            }
+                        ]
+                    }
+
+                });
             });
 
-
-        this.setState({
-            chartDataOBJ: {
-                labels: date, //["fsdf","sdf","fsd","sdf","sada","adas"]
-                datasets: [
-                    {
-                        label: 'My First dataset',
-                        fill: false,
-                        lineTension: 0.1,
-                        backgroundColor: 'rgba(75,192,192,0.4)',
-                        borderColor: 'rgba(75,192,192,1)',
-                        borderCapStyle: 'butt',
-                        borderDash: [],
-                        borderDashOffset: 0.0,
-                        borderJoinStyle: 'miter',
-                        pointBorderColor: 'rgba(75,192,192,1)',
-                        pointBackgroundColor: '#fff',
-                        pointBorderWidth: 1,
-                        pointHoverRadius: 5,
-                        pointHoverBackgroundColor: 'rgba(75,192,192,1)',
-                        pointHoverBorderColor: 'rgba(220,220,220,1)',
-                        pointHoverBorderWidth: 2,
-                        pointRadius: 1,
-                        pointHitRadius: 10,
-                        data: closing //[1, 3, 2, 4, 5, 2, 3]
-                    }
-                ]
-            }
-
-        });
 
     }
 
@@ -105,13 +104,13 @@ data view
         //btn group https://reactstrap.github.io/components/button-group/
         //TODO convert to radio buttons http://reactstrap.github.io/components/buttons/
         if (this.state.chartDataOBJ == null) {
-               console.log("not loaded!!!!")
+            //   console.log("not loaded!!!!")
             // console.log(this.state.chartDataOBJ)
             return <div/>
         }
         //    console.log("loaded!!");
-           console.log("chartDataOBJ: ");
-           console.log(this.state.chartDataOBJ);
+        //   console.log("chartDataOBJ: ");
+        //   console.log(this.state.chartDataOBJ);
         return (
 
 
