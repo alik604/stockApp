@@ -40,18 +40,31 @@ class Achart extends Component {
 
 
         //  var chartData = "error"; //TODO
-        let stringArryOfDates = [];
-        let arryOfPrices = [];
+        let date = [];
+        let details = [];
 
         fetch('Http://localhost:3001/MSFT')
             .then(res => res.json())
             .then(chartData => {  //chartData is the returned OBJ. contais all the shit
                 // console.log(chartData)
+                //console.log(chartData["Time Series (Daily)"]["2018-03-07"]);
 
-                chartData.forEach(element => {
-                    stringArryOfDates.push('' + element.date);
-                    arryOfPrices.push(element.close);
-                });
+                var details = [];
+                var date = [];
+
+                for (var x in chartData["Time Series (Daily)"]) {
+                    details.push(parseFloat((chartData["Time Series (Daily)"][x]['4. close'])));
+                    date.push(x);
+                }
+                for (var i = 0; i < date.length; i++) {
+                  //  console.log(date[i] + " was " + details[i]);// TODO
+                }
+
+//TODO
+                //       chartData.forEach(element => {
+                //           stringArryOfDates.push('' + element.date);
+                //           arryOfPrices.push(element.close);
+                //        });
 
 
                 // for (var i = 0; i < chartData.length; i++) {// TODO fix this shit with a map
@@ -67,7 +80,7 @@ class Achart extends Component {
 
         this.setState({
             chartDataOBJ: {
-                labels: stringArryOfDates,
+                labels: date,
                 datasets: [
                     {
                         label: 'My First dataset',
@@ -88,7 +101,7 @@ class Achart extends Component {
                         pointHoverBorderWidth: 2,
                         pointRadius: 1,
                         pointHitRadius: 10,
-                        data: arryOfPrices   //[1, 3, 2, 4, 5, 2, 3]
+                        data: details   //[1, 3, 2, 4, 5, 2, 3]
                     }
                 ]
             }
@@ -124,13 +137,13 @@ data view
         //btn group https://reactstrap.github.io/components/button-group/
         //TODO convert to radio buttons http://reactstrap.github.io/components/buttons/
         if (this.state.chartDataOBJ == null) {
-            console.log("not loaded!!!!")
+            //   console.log("not loaded!!!!")
             // console.log(this.state.chartDataOBJ)
             return <div/>
         }
-        console.log("loaded!!");
-        console.log("chartDataOBJ: ");
-        console.log(this.state.chartDataOBJ);
+        //    console.log("loaded!!");
+        //   console.log("chartDataOBJ: ");
+        //   console.log(this.state.chartDataOBJ);
         return (
 
 

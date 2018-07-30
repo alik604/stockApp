@@ -1,8 +1,13 @@
 var company;
 
+
 const express = require('express');
 const mongoose = require('mongoose');
 const passport = require('passport');
+
+const users = require('./routes/api/users');
+const profile = require('./routes/api/profile');
+const posts = require('./routes/api/posts');
 
 const path = require('path');
 const bp = require('body-parser');
@@ -22,48 +27,66 @@ app.use(function (req, res, next) {
 //console.log(t.sum(1, 3));
 //----------------------------------------
 
-var HTMLinjectForData = "<ul>"; //TODO unused
 var https = require("https");
+var request = require("request");
+const axios = require('axios');
 
-var username = "e371d3991e8c9382566da9024295975b";
-var password = "1cd8736e5f80c851b1284340880a31c6";
-var auth = "Basic " + new Buffer(username + ':' + password).toString('base64');
+var dataWithAxios;
 
-var updateData = function (stockSymbol) {
-    var request = https.request({
-        method: "GET",
-        host: "api.intrinio.com",
-        path: "/prices?identifier=" + stockSymbol + "&start_date=2018-05-8&end_date=2018-05-16&frequency=daily&sort_order=des",
-        /*companies?ticker=AAPL  ||||||  data_point?ticker=AAPL&item=marketcap */
-        headers: {
-            "Authorization": auth
+function getDataWithAxios(str) {
+
+    var url = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" + str + "&outputsize=compact&apikey=ZYE987WC2KYKC29H";
+    axios.get(url)
+        .then((response) => {
+            dataWithAxios = response.data;
+            // console.log(x);
+
+        }).catch((e) => {
+        console.log(e.message);
+    });
+};
+
+function getData(str) {
+    var url = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" + str + "&outputsize=compact&apikey=ZYE987WC2KYKC29H";
+    var b = "null...";
+    request({
+        url: url,
+        json: true
+    }, function (error, response, body) {
+        if (!error && response.statusCode === 200) {
+            //  console.log(body); // Print the json response
+
+            b = body;
         }
+    });
+    return b;
+};
+
+function updateData(stockSymbol) {
+
+    var req = https.request({
+        method: "GET",
+        host: "www.alphavantage.co",
+        path: "/query?function=TIME_SERIES_MONTHLY&symbol=" + stockSymbol + "&apikey=ZYE987WC2KYKC29H",
+        headers: {}
     }, function (response) {
+
         var json = "";
         response.on('data', function (chunk) {
             json += chunk;
         });
         response.on('end', function () {
             company = JSON.parse(json);
-            console.log(company);
-            console.log("-----------------------------------");
-
-            /*   for (var key in company.data) {
-                   console.log("on " + company.data[key].date + " " + stockSymbol + " closed at: $" + company.data[key].close);
-                   HTMLinjectForData += "<li>";
-                   HTMLinjectForData += "on " + company.data[key].date + " " + stockSymbol + " closed at: $" + company.data[key].close;
-                   HTMLinjectForData += "</li>";
-               }
-               HTMLinjectForData += " </ul>";
-       */
-        });
-    });
+            //console.log(company);
+            //console.log("-----------------------------------");
+        });//end
+    });//req
 
     request.end();
     return company;
-}
+};
 
-company = updateData("AAPL");
+
 // ----------------------------------
 app.set('views', path.join(__dirname, 'views'));
 app.use(bp.json());
@@ -78,7 +101,7 @@ const db = require('./config/keys').mongoURI;
 mongoose
     .connect(db)
     .then(() => console.log('MongoDB Connected'))
-    .catch(err => console.log(err));
+    .catch(err => console.log("FML... " + err));
 
 // Passport middleware
 app.use(passport.initialize());
@@ -86,59 +109,50 @@ app.use(passport.initialize());
 // Passport Config
 require('./config/passport')(passport);
 
+// Use Routes
+app.use('/api/users', users);
+app.use('/api/profile', profile);
+app.use('/api/posts', posts);
 
 
 //--------------
 app.get('/', function (req, res) {
-    company = updateData("AAPL");
+    getDataWithAxios("AAPL");
+
     setTimeout(function () {
-        res.status(200).send({
-            MyallData: company.data
-        });
+        res.json(dataWithAxios);
+        console.log(dataWithAxios);
     }, 1000);
+
 
 
 });
 
 app.get('/MSFT', function (req, res) {
-    company = updateData("MSFT");
+    getDataWithAxios("MSFT");
+
     setTimeout(function () {
-        res.json(company.data);
+        res.json(dataWithAxios);
+        console.log(dataWithAxios);
     }, 1000);
 
-
 });
+app.get(':id', function (req, res) {
+
+    getDataWithAxios(req.params.id);
+    setTimeout(function () {
+        res.json(dataWithAxios);
+        console.log(dataWithAxios);
+    }, 1000);
+});
+
+
+
+
+// getDataWithAxios("AAPL");
+// setTimeout(function () {
+//     console.log(dataWithAxios);
+// }, 1000);
 
 app.listen(3001); //main
 
-
-//
-
-
-/*var https = require("https");
-
-
-var username = "e371d3991e8c9382566da9024295975b";
-var password = "1cd8736e5f80c851b1284340880a31c6";
-var auth = "Basic " + new Buffer(username + ':' + password).toString('base64');
-
-var request = https.request({
-    method: "GET",
-    host: "api.intrinio.com",
-    path: "/companies?ticker=AAPL",
-    headers: {
-        "Authorization": auth
-    }
-}, function (response) {
-    var json = "";
-    response.on('data', function (chunk) {
-        json += chunk;
-    });
-    response.on('end', function () {
-        var company = JSON.parse(json);
-        console.log(company);
-    });
-});
-
-request.end();
-*/
