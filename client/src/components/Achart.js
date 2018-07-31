@@ -7,20 +7,11 @@ import './Achart.css';
 
 class Achart extends Component {
 
-    static defaultProps = {
-        displayTitle: true,
-        displayLegend: false,
-        legendPosition: 'right',
-        stock: 'XYZ'
-    }
-
     constructor(props) {
         super(props);
         this.state = {
             chartDataOBJ: {}
         };
-
-
     }
 
     componentDidMount() {

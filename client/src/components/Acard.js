@@ -7,7 +7,7 @@ class Acard extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = null;
 
 
     }
@@ -15,10 +15,13 @@ class Acard extends Component {
     componentDidMount() {
 
 
-        fetch('Http://localhost:3001/MSFT')
+        fetch('Http://localhost:3001/MSFT/company')
             .then(res => res.json())
-            .then(chartData => {
-                this.setState({});
+            .then(cardData => {
+
+
+                this.setState({data: cardData});
+                console.log(this.state.data);
             });
 
 
@@ -26,7 +29,9 @@ class Acard extends Component {
 
 
     render() {
-
+        /**
+         http://www.google.com/search?q=my+keywords+for+search&btnI
+         */
         /*
         data view
             card
@@ -49,19 +54,22 @@ class Acard extends Component {
         //   console.log("chartDataOBJ: ");
         //   console.log(this.state.chartDataOBJ);
 
-        const style = {
-            height: 100,
-            width: 100,
-            margin: 20,
-            textAlign: 'center',
-            display: 'inline-block',
-        };
+
+        if (this.state == null) {
+            console.log("not loaded!!!!")
+            // console.log(this.state.chartDataOBJ)
+            return <div/>
+        }
+        const info = this.state.data;
+
         return (
 
 
             <div className="wrapper ">
                 <div>
-                    <h3>Heading <Badge color="primary">MSFT</Badge></h3>
+
+
+                    <h6>{this.state.data.exchange} <Badge color="primary">{this.state.data.symbol}</Badge></h6>
                 </div>
 
                 <div className="AcardLeft">
@@ -70,12 +78,16 @@ class Acard extends Component {
                         <CardImg top width="100%"
                                  src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318×180&w=318&h=180"/>
                         <CardBody>
-                            <CardTitle>Current: $123</CardTitle>
+                            <CardTitle> Current: $123</CardTitle>
                             <CardSubtitle> 10% change today</CardSubtitle>
-                            <CardText>microsoft is a.... Some quick example text to build on the card title and make up
-                                the bulk of the
-                                card's content.</CardText>
-                            <Button>site</Button> <Button>better chart</Button>
+                            <CardText> {this.state.data.companyName}'s CEO
+                                is {this.state.data.CEO},{this.state.data.description}</CardText>
+                            <Button onClick={() => {
+                                window.open("http://www.google.com/search?q=" + this.state.data.companyName + "&btnI");
+                            }
+                            }>site</Button> <Button onClick={() => {
+                            window.open("https://www.tradingview.com/chart/?symbol=NASDAQ:" + info.symbol);
+                        }}>better chart</Button>
 
                         </CardBody>
 
