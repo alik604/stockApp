@@ -1,3 +1,6 @@
+//https://mlab.com/databases/thisone/collections/users
+
+
 var company;
 
 
@@ -46,45 +49,62 @@ function getDataWithAxios(str) {
     });
 };
 
-function getData(str) {
-    var url = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" + str + "&outputsize=compact&apikey=ZYE987WC2KYKC29H";
-    var b = "null...";
-    request({
-        url: url,
-        json: true
-    }, function (error, response, body) {
-        if (!error && response.statusCode === 200) {
-            //  console.log(body); // Print the json response
+var comWithAxios;
 
-            b = body;
-        }
+function getCompanyWithAxios(str) {
+
+    var url = "https://api.iextrading.com/1.0/stock/" + str + "/company";
+    axios.get(url)
+        .then((response) => {
+            comWithAxios = response.data;
+            console.log(comWithAxios);
+
+        }).catch((e) => {
+        console.log(e.message);
     });
-    return b;
+
 };
 
-function updateData(stockSymbol) {
 
-    var req = https.request({
-        method: "GET",
-        host: "www.alphavantage.co",
-        path: "/query?function=TIME_SERIES_MONTHLY&symbol=" + stockSymbol + "&apikey=ZYE987WC2KYKC29H",
-        headers: {}
-    }, function (response) {
+// function getData(str) {
+//     var url = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" + str + "&outputsize=compact&apikey=ZYE987WC2KYKC29H";
+//     var b = "null...";
+//     request({
+//         url: url,
+//         json: true
+//     }, function (error, response, body) {
+//         if (!error && response.statusCode === 200) {
+//             //  console.log(body); // Print the json response
+//
+//             b = body;
+//         }
+//     });
+//     return b;
+// };
 
-        var json = "";
-        response.on('data', function (chunk) {
-            json += chunk;
-        });
-        response.on('end', function () {
-            company = JSON.parse(json);
-            //console.log(company);
-            //console.log("-----------------------------------");
-        });//end
-    });//req
-
-    request.end();
-    return company;
-};
+// function updateData(stockSymbol) {
+//
+//     var req = https.request({
+//         method: "GET",
+//         host: "www.alphavantage.co",
+//         path: "/query?function=TIME_SERIES_MONTHLY&symbol=" + stockSymbol + "&apikey=ZYE987WC2KYKC29H",
+//         headers: {}
+//     }, function (response) {
+//
+//         var json = "";
+//         response.on('data', function (chunk) {
+//             json += chunk;
+//         });
+//         response.on('end', function () {
+//             company = JSON.parse(json);
+//             //console.log(company);
+//             //console.log("-----------------------------------");
+//         });//end
+//     });//req
+//
+//     request.end();
+//     return company;
+// };
 
 
 // ----------------------------------
@@ -116,37 +136,46 @@ app.use('/api/posts', posts);
 
 
 //--------------
-app.get('/', function (req, res) {
-    getDataWithAxios("AAPL");
-
-    setTimeout(function () {
-        res.json(dataWithAxios);
-        console.log(dataWithAxios);
-    }, 1000);
-
-
-
-});
+// app.get('/', function (req, res) {
+//     getDataWithAxios("AAPL");
+//
+//     setTimeout(function () {
+//         res.json(dataWithAxios);
+//       //  console.log(dataWithAxios);
+//     }, 1000);
+//
+//
+// });
 
 app.get('/MSFT', function (req, res) {
     getDataWithAxios("MSFT");
 
     setTimeout(function () {
         res.json(dataWithAxios);
-        console.log(dataWithAxios);
+       // console.log(dataWithAxios);
     }, 1000);
 
 });
-app.get(':id', function (req, res) {
+app.get('/MSFT/company', function (req, res) {
+    comWithAxios ="";
+    getCompanyWithAxios("msft");
+    console.log(comWithAxios);
 
-    getDataWithAxios(req.params.id);
     setTimeout(function () {
-        res.json(dataWithAxios);
-        console.log(dataWithAxios);
+        res.json(comWithAxios);
+
+        console.log("/company")
     }, 1000);
+
 });
-
-
+// app.get(':id', function (req, res) {
+//
+//     getDataWithAxios(req.params.id);
+//     setTimeout(function () {
+//         res.json(dataWithAxios);
+//         console.log(dataWithAxios);
+//     }, 1000);
+// });
 
 
 // getDataWithAxios("AAPL");

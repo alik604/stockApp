@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 //import AListing from './components/AListing';
 import AppBar from './components/AppBar';
 import Achart from './components/Achart';
+import Acard from './components/Acard';
 
 export default class PersonList extends React.Component {
 
@@ -67,6 +68,7 @@ export default class PersonList extends React.Component {
     */
     render() {
         //alt nav bar  https://reactstrap.github.io/components/navbar/
+        // TODO --------------------------------------
         //FAB https://stackoverflow.com/questions/35828991/make-material-ui-reactjs-floatingactionbutton-float
         const style = {
             margin: 0,
@@ -91,6 +93,7 @@ export default class PersonList extends React.Component {
                 </Button>
                 <button className="btn btn-danger float-right">Example Button floated right</button>
 
+                <Acard/>
 
                 <Achart/>
                 <Button variant="fab" color="primary" icon='home' style={style}> </Button>

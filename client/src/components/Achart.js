@@ -7,20 +7,11 @@ import './Achart.css';
 
 class Achart extends Component {
 
-    static defaultProps = {
-        displayTitle: true,
-        displayLegend: false,
-        legendPosition: 'right',
-        stock: 'XYZ'
-    }
-
     constructor(props) {
         super(props);
         this.state = {
             chartDataOBJ: {}
         };
-
-
     }
 
     componentDidMount() {
@@ -38,7 +29,8 @@ class Achart extends Component {
                     closing.push(parseFloat((chartData["Time Series (Daily)"][x]['4. close'])));
                     date.push("" + x);
                 }
-
+                date.reverse();
+                closing.reverse();
                 // for (var i = 0; i < date.length; i++) {
                 //       console.log(date[i] + " was " + details[i]);// TODO
                 // }
@@ -116,7 +108,7 @@ data view
 
             <div className="wrapper ">
                 <div>
-                    <h1>Heading <Badge color="primary">XYZ</Badge></h1>
+
                 </div>
 
                 <div className="left">
