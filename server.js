@@ -152,12 +152,12 @@ app.get('/MSFT', function (req, res) {
 
     setTimeout(function () {
         res.json(dataWithAxios);
-       // console.log(dataWithAxios);
+        // console.log(dataWithAxios);
     }, 1000);
 
 });
 app.get('/MSFT/company', function (req, res) {
-    comWithAxios ="";
+    comWithAxios = "";
     getCompanyWithAxios("msft");
     console.log(comWithAxios);
 
@@ -168,15 +168,26 @@ app.get('/MSFT/company', function (req, res) {
     }, 1000);
 
 });
-// app.get(':id', function (req, res) {
-//
-//     getDataWithAxios(req.params.id);
-//     setTimeout(function () {
-//         res.json(dataWithAxios);
-//         console.log(dataWithAxios);
-//     }, 1000);
-// });
+app.get('/:id', function (req, res) {
 
+    getDataWithAxios(req.params.id);
+    setTimeout(function () {
+        res.json(dataWithAxios);
+        console.log(dataWithAxios);
+    }, 1000);
+});
+app.get('/:ii/:id', function (req, res) {
+    comWithAxios = "";
+    getCompanyWithAxios(req.params.id);
+    console.log(comWithAxios);
+
+    setTimeout(function () {
+        res.json(comWithAxios);
+
+        console.log("/company")
+    }, 1000);
+
+});
 
 // getDataWithAxios("AAPL");
 // setTimeout(function () {

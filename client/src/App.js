@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button';
 import AppBar from './components/AppBar';
 import Achart from './components/Achart';
 import Acard from './components/Acard';
-
+import Arepeater from './components/Arepeater';
 export default class PersonList extends React.Component {
 
     constructor() {
@@ -97,6 +97,8 @@ export default class PersonList extends React.Component {
 
                 <Achart/>
                 <Button variant="fab" color="primary" icon='home' style={style}> </Button>
+
+                <Arepeater/>
             </div>
         );
 
