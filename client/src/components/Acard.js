@@ -4,27 +4,18 @@ import './Acard.css';
 
 class Acard extends Component {
 
-
     constructor(props) {
         super(props);
         this.state = null;
-
-
     }
 
     componentDidMount() {
-
-
         fetch('Http://localhost:3001/MSFT/company')
             .then(res => res.json())
             .then(cardData => {
-
-
                 this.setState({data: cardData});
                // console.log(this.state.data);
             });
-
-
     }
 
 
@@ -88,13 +79,9 @@ class Acard extends Component {
                             }>site</Button> <Button onClick={() => {
                             window.open("https://www.tradingview.com/chart/?symbol=NASDAQ:" + info.symbol);
                         }}>better chart</Button>
-
                         </CardBody>
-
                     </Card>
-
                 </div>
-
             </div>
         )
 
