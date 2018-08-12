@@ -21,7 +21,7 @@ class Acard extends Component {
 
 
                 this.setState({data: cardData});
-                console.log(this.state.data);
+               // console.log(this.state.data);
             });
 
 

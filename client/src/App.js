@@ -2,7 +2,6 @@ import React from 'react';
 //import axios from 'axios';
 //import {Button} from 'reactstrap';
 import Button from '@material-ui/core/Button';
-//import AListing from './components/AListing';
 import AppBar from './components/AppBar';
 import Achart from './components/Achart';
 import Acard from './components/Acard';

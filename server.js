@@ -30,84 +30,6 @@ app.use(function (req, res, next) {
 //console.log(t.sum(1, 3));
 //----------------------------------------
 
-var https = require("https");
-var request = require("request");
-const axios = require('axios');
-
-var dataWithAxios;
-
-function getDataWithAxios(str) {
-
-    var url = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" + str + "&outputsize=compact&apikey=ZYE987WC2KYKC29H";
-    axios.get(url)
-        .then((response) => {
-            dataWithAxios = response.data;
-            // console.log(x);
-
-        }).catch((e) => {
-        console.log(e.message);
-    });
-};
-
-var comWithAxios;
-
-function getCompanyWithAxios(str) {
-
-    var url = "https://api.iextrading.com/1.0/stock/" + str + "/company";
-    axios.get(url)
-        .then((response) => {
-            comWithAxios = response.data;
-            console.log(comWithAxios);
-
-        }).catch((e) => {
-        console.log(e.message);
-    });
-
-};
-
-
-// function getData(str) {
-//     var url = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" + str + "&outputsize=compact&apikey=ZYE987WC2KYKC29H";
-//     var b = "null...";
-//     request({
-//         url: url,
-//         json: true
-//     }, function (error, response, body) {
-//         if (!error && response.statusCode === 200) {
-//             //  console.log(body); // Print the json response
-//
-//             b = body;
-//         }
-//     });
-//     return b;
-// };
-
-// function updateData(stockSymbol) {
-//
-//     var req = https.request({
-//         method: "GET",
-//         host: "www.alphavantage.co",
-//         path: "/query?function=TIME_SERIES_MONTHLY&symbol=" + stockSymbol + "&apikey=ZYE987WC2KYKC29H",
-//         headers: {}
-//     }, function (response) {
-//
-//         var json = "";
-//         response.on('data', function (chunk) {
-//             json += chunk;
-//         });
-//         response.on('end', function () {
-//             company = JSON.parse(json);
-//             //console.log(company);
-//             //console.log("-----------------------------------");
-//         });//end
-//     });//req
-//
-//     request.end();
-//     return company;
-// };
-
-
-// ----------------------------------
 app.set('views', path.join(__dirname, 'views'));
 app.use(bp.json());
 app.use(bp.urlencoded({extended: false}));
@@ -136,63 +58,74 @@ app.use('/api/posts', posts);
 
 
 //--------------
-// app.get('/', function (req, res) {
-//     getDataWithAxios("AAPL");
-//
-//     setTimeout(function () {
-//         res.json(dataWithAxios);
-//       //  console.log(dataWithAxios);
-//     }, 1000);
-//
-//
-// });
 
-app.get('/MSFT', function (req, res) {
-    getDataWithAxios("MSFT");
+const axios = require('axios');
+
+var dataWithAxios;
+var comWithAxios;
+
+function getDataWithAxios(str) {
+    console.log("dssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss " + str)
+    var url = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" + str + "&outputsize=compact&apikey=ZYE987WC2KYKC29H";
+    axios.get(url)
+        .then((response) => {
+            dataWithAxios = response.data;
+            // console.log(x);
+
+        }).catch((e) => {
+        console.log(e.message);
+    }).finally(() => {
+
+    });
+};
+
+
+function getCompanyWithAxios(str) {
+
+    var url = "https://api.iextrading.com/1.0/stock/" + str + "/company";
+    axios.get(url)
+        .then((response) => {
+            comWithAxios = response.data;
+            //  console.log(comWithAxios);
+
+        }).catch((e) => {
+        console.log(e.message);
+    });
+
+};
+
+
+// ----------------------------------
+
+app.get('/:id', function (req, res) {
+    dataWithAxios = "";
+    getDataWithAxios(req.params.id);
 
     setTimeout(function () {
+        console.log("req.params.id, is:", req.params.id);
+        console.log("req.params.id,  return is:", dataWithAxios);
         res.json(dataWithAxios);
-        // console.log(dataWithAxios);
     }, 1000);
-
 });
+
 app.get('/MSFT/company', function (req, res) {
     comWithAxios = "";
     getCompanyWithAxios("msft");
-    console.log(comWithAxios);
 
     setTimeout(function () {
         res.json(comWithAxios);
-
-        console.log("/company")
-    }, 1000);
-
-});
-app.get('/:id', function (req, res) {
-
-    getDataWithAxios(req.params.id);
-    setTimeout(function () {
-        res.json(dataWithAxios);
-        console.log(dataWithAxios);
     }, 1000);
 });
-app.get('/:ii/:id', function (req, res) {
+
+app.get('/:ii/:id', function (req, res) { //TODO fix
     comWithAxios = "";
     getCompanyWithAxios(req.params.id);
-    console.log(comWithAxios);
 
     setTimeout(function () {
         res.json(comWithAxios);
-
-        console.log("/company")
     }, 1000);
-
 });
 
-// getDataWithAxios("AAPL");
-// setTimeout(function () {
-//     console.log(dataWithAxios);
-// }, 1000);
 
 app.listen(3001); //main
 
