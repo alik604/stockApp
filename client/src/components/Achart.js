@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Line} from 'react-chartjs-2';
-import {Badge, Button, ButtonGroup, ButtonToolbar} from 'reactstrap';
+import {Button, ButtonGroup, ButtonToolbar} from 'reactstrap';
 
 
 import './Achart.css';
@@ -15,60 +15,60 @@ class Achart extends Component {
     }
 
     componentDidMount() {
-
-        let date = [];
-        let closing = [];
-
-        fetch('Http://localhost:3001/MSFT')
-            .then(res => res.json())
-            .then(chartData => {  //chartData is the returned OBJ. contais all the shit
-                //console.log(chartData["Time Series (Daily)"]["2018-03-07"]);
-
-
-                for (var x in chartData["Time Series (Daily)"]) {
-                    closing.push(parseFloat((chartData["Time Series (Daily)"][x]['4. close'])));
-                    date.push("" + x);
-                }
-                date.reverse();
-                closing.reverse();
-                // for (var i = 0; i < date.length; i++) {
-                //       console.log(date[i] + " was " + details[i]);// TODO
-                // }
-                //       chartData.forEach(element => {
-                //           stringArryOfDates.push('' + element.date);
-                //           arryOfPrices.push(element.close);
-                //        });
-
-                this.setState({
-                    chartDataOBJ: {
-                        labels: date, //["2","2","2","2","4","1"]
-                        datasets: [
-                            {
-                                label: 'MSFT',
-                                fill: false,
-                                lineTension: 0.1,
-                                backgroundColor: 'rgba(75,192,192,0.4)',
-                                borderColor: 'rgba(75,192,192,1)',
-                                borderCapStyle: 'butt',
-                                borderDash: [],
-                                borderDashOffset: 0.0,
-                                borderJoinStyle: 'miter',
-                                pointBorderColor: 'rgba(75,192,192,1)',
-                                pointBackgroundColor: '#fff',
-                                pointBorderWidth: 1,
-                                pointHoverRadius: 5,
-                                pointHoverBackgroundColor: 'rgba(75,192,192,1)',
-                                pointHoverBorderColor: 'rgba(220,220,220,1)',
-                                pointHoverBorderWidth: 2,
-                                pointRadius: 1,
-                                pointHitRadius: 10,
-                                data: closing //[1, 3, 2, 4, 5, 2, 3]
-                            }
-                        ]
-                    }
-
-                });
-            });
+        //    this.setState({chartDataOBJ: this.props.chartData});
+        // let date = [];
+        // let closing = [];
+        //
+        // fetch('Http://localhost:3001/MSFT')
+        //     .then(res => res.json())
+        //     .then(chartData => {  //chartData is the returned OBJ. contais all the shit
+        //         //console.log(chartData["Time Series (Daily)"]["2018-03-07"]);
+        //
+        //
+        //         for (var x in chartData["Time Series (Daily)"]) {
+        //             closing.push(parseFloat((chartData["Time Series (Daily)"][x]['4. close'])));
+        //             date.push("" + x);
+        //         }
+        //         date.reverse();
+        //         closing.reverse();
+        //         // for (var i = 0; i < date.length; i++) {
+        //         //       console.log(date[i] + " was " + details[i]);// TODO
+        //         // }
+        //         //       chartData.forEach(element => {
+        //         //           stringArryOfDates.push('' + element.date);
+        //         //           arryOfPrices.push(element.close);
+        //         //        });
+        //
+        //         this.setState({
+        //             chartDataOBJ: {
+        //                 labels: date, //["2","2","2","2","4","1"]
+        //                 datasets: [
+        //                     {
+        //                         label: 'MSFT',
+        //                         fill: false,
+        //                         lineTension: 0.1,
+        //                         backgroundColor: 'rgba(75,192,192,0.4)',
+        //                         borderColor: 'rgba(75,192,192,1)',
+        //                         borderCapStyle: 'butt',
+        //                         borderDash: [],
+        //                         borderDashOffset: 0.0,
+        //                         borderJoinStyle: 'miter',
+        //                         pointBorderColor: 'rgba(75,192,192,1)',
+        //                         pointBackgroundColor: '#fff',
+        //                         pointBorderWidth: 1,
+        //                         pointHoverRadius: 5,
+        //                         pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+        //                         pointHoverBorderColor: 'rgba(220,220,220,1)',
+        //                         pointHoverBorderWidth: 2,
+        //                         pointRadius: 1,
+        //                         pointHitRadius: 10,
+        //                         data: closing //[1, 3, 2, 4, 5, 2, 3]
+        //                     }
+        //                 ]
+        //             }
+        //
+        //         });
+        //     });
 
 
     }
@@ -95,8 +95,8 @@ data view
 
         //btn group https://reactstrap.github.io/components/button-group/
         //TODO convert to radio buttons http://reactstrap.github.io/components/buttons/
-        if (this.state.chartDataOBJ == null) {
-            //   console.log("not loaded!!!!")
+        if (this.props.chartData == null) {
+            console.log("chart not loaded!!!!")
             // console.log(this.state.chartDataOBJ)
             return <div/>
         }
@@ -123,6 +123,7 @@ data view
                                 <Button>3 year</Button>
                                 <Button>9 year</Button>
                             </ButtonGroup>
+
                             <ButtonGroup size="sm">
                                 <Button>SMA-12</Button>
                                 <Button>SMA-30</Button>
@@ -134,7 +135,7 @@ data view
                     </div>
                     < div className="chart">
                         < Line
-                            data={this.state.chartDataOBJ}
+                            data={this.props.chartData}
 
                         />
 

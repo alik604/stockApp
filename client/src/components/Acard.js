@@ -4,27 +4,20 @@ import './Acard.css';
 
 class Acard extends Component {
 
-
     constructor(props) {
         super(props);
-        this.state = null;
-
-
+        // this.state = null;
     }
 
     componentDidMount() {
-
-
-        fetch('Http://localhost:3001/MSFT/company')
-            .then(res => res.json())
-            .then(cardData => {
-
-
-                this.setState({data: cardData});
-                console.log(this.state.data);
-            });
-
-
+        // console.log(this.props.cardData);
+        //  this.setState({data: this.props.cardData});
+        // fetch('Http://localhost:3001/MSFT/company')
+        //     .then(res => res.json())
+        //     .then(cardData => {
+        //         this.setState({data: cardData});
+        //        // console.log(this.state.data);
+        //     });
     }
 
 
@@ -51,25 +44,24 @@ class Acard extends Component {
 
 
         //    console.log("loaded!!");
-        //   console.log("chartDataOBJ: ");
-        //   console.log(this.state.chartDataOBJ);
+        //   console.log("cardDataOBJ: ");
+        //   console.log(this.state.cardDataOBJ);
 
 
-        if (this.state == null) {
+        if (this.props.cardData == null) {
             console.log("not loaded!!!!")
-            // console.log(this.state.chartDataOBJ)
+
             return <div/>
         }
-        const info = this.state.data;
-
+        const info = this.props.cardData;
+        console.log(this.props.cardData);
         return (
 
 
             <div className="wrapper ">
                 <div>
-
-
-                    <h6>{this.state.data.exchange} <Badge color="primary">{this.state.data.symbol}</Badge></h6>
+                    <h6>{this.props.cardData.exchange} <Badge color="primary">{this.props.cardData.symbol}</Badge>
+                    </h6>
                 </div>
 
                 <div className="AcardLeft">
@@ -80,21 +72,19 @@ class Acard extends Component {
                         <CardBody>
                             <CardTitle> Current: $123</CardTitle>
                             <CardSubtitle> 10% change today</CardSubtitle>
-                            <CardText> {this.state.data.companyName}'s CEO
-                                is {this.state.data.CEO},{this.state.data.description}</CardText>
+                            <CardText> {this.props.cardData.companyName}'s CEO
+                                is {this.props.cardData.CEO},{this.props.cardData.description}</CardText>
                             <Button onClick={() => {
-                                window.open("http://www.google.com/search?q=" + this.state.data.companyName + "&btnI");
-                            }
-                            }>site</Button> <Button onClick={() => {
-                            window.open("https://www.tradingview.com/chart/?symbol=NASDAQ:" + info.symbol);
-                        }}>better chart</Button>
+                                window.open("http://www.google.com/search?q=" + this.props.cardData.companyName + "&btnI");
+                            }}>site</Button>
+
+                            <Button onClick={() => {
+                                window.open("https://www.tradingview.com/chart/?symbol=NASDAQ:" + info.symbol);
+                            }}>better chart</Button>
 
                         </CardBody>
-
                     </Card>
-
                 </div>
-
             </div>
         )
 

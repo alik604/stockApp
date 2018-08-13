@@ -152,7 +152,7 @@ app.get('/MSFT', function (req, res) {
 
     setTimeout(function () {
         res.json(dataWithAxios);
-       // console.log(dataWithAxios);
+        // console.log(dataWithAxios);
     }, 1000);
 
 });
