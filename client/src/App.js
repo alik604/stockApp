@@ -1,14 +1,12 @@
 import React from 'react';
 //import axios from 'axios';
-//import {Button} from 'reactstrap';
-import Button from '@material-ui/core/Button';
+import {Button} from 'reactstrap';
 import AppBar from './components/AppBar';
+import AContentPane from './components/AContentPane';
+
 
 // import Achart from './components/Achart';
 // import Acard from './components/Acard';
-
-import Arepeater from './components/Arepeater';
-import AComtentPane from './components/AContentPane';
 
 export default class PersonList extends React.Component {
 
@@ -24,6 +22,7 @@ export default class PersonList extends React.Component {
         //alt nav bar  https://reactstrap.github.io/components/navbar/
         // TODO --------------------------------------
         //FAB https://stackoverflow.com/questions/35828991/make-material-ui-reactjs-floatingactionbutton-float
+
         const style = {
             margin: 0,
             top: 'auto',
@@ -32,27 +31,22 @@ export default class PersonList extends React.Component {
             left: 'auto',
             position: 'fixed',
         };
-        //    <AListing/>
+
+// <Button variant="contained" color="primary">btn via reactstrap</Button>
+        // <Arepeater/>
         return (
+
             <div>
                 <AppBar/>
-                <h1>Welcome to stock app!</h1>
+
+                <AContentPane/>
+
+                <AContentPane/>
 
 
-                <Button variant="contained" color="primary">
-                    btn via mat
-                </Button>
-                <Button color="primary">
-                    reg btn via mat
-                </Button>
+                <Button variant="fab" color="primary" style={style}> addIcon* </Button>
+
                 <button className="btn btn-danger float-right">Example Button floated right</button>
-
-                <AComtentPane/>
-
-
-                <Button variant="fab" color="primary" icon='home' style={style}> </Button>
-
-                <Arepeater/>
             </div>
         );
 

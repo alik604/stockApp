@@ -74,9 +74,7 @@ function getDataWithAxios(str) {
 
         }).catch((e) => {
         console.log(e.message);
-    }).finally(() => {
-
-    });
+    })
 };
 
 
@@ -117,14 +115,14 @@ app.get('/MSFT/company', function (req, res) {
     }, 1000);
 });
 
-app.get('/:ii/:id', function (req, res) { //TODO fix
-    comWithAxios = "";
-    getCompanyWithAxios(req.params.id);
-
-    setTimeout(function () {
-        res.json(comWithAxios);
-    }, 1000);
-});
+// app.get('/:ii/:id', function (req, res) { //TODO fix
+//     comWithAxios = "";
+//     getCompanyWithAxios(req.params.id);
+//
+//     setTimeout(function () {
+//         res.json(comWithAxios);
+//     }, 1000);
+// });
 
 
 app.listen(3001); //main

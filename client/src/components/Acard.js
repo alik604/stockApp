@@ -10,12 +10,12 @@ class Acard extends Component {
     }
 
     componentDidMount() {
-        fetch('Http://localhost:3001/MSFT/company')
-            .then(res => res.json())
-            .then(cardData => {
-                this.setState({data: cardData});
-               // console.log(this.state.data);
-            });
+        // fetch('Http://localhost:3001/MSFT/company')
+        //     .then(res => res.json())
+        //     .then(cardData => {
+        //         this.setState({data: cardData});
+        //        // console.log(this.state.data);
+        //     });
     }
 
 
@@ -46,21 +46,22 @@ class Acard extends Component {
         //   console.log(this.state.chartDataOBJ);
 
 
-        if (this.state == null) {
+        if (this.props.cardData == null) {
             console.log("not loaded!!!!")
             // console.log(this.state.chartDataOBJ)
             return <div/>
         }
-        const info = this.state.data;
-
+        const info = this.props.cardData;
+        /*TODO color
+        https://reactstrap.github.io/components/buttons/
+        https://reactstrap.github.io/components/badge/
+         */
         return (
 
 
             <div className="wrapper ">
                 <div>
-
-
-                    <h6>{this.state.data.exchange} <Badge color="primary">{this.state.data.symbol}</Badge></h6>
+                    <h6>{this.props.cardData.exchange} <Badge color="info">{this.props.cardData.symbol}</Badge></h6>
                 </div>
 
                 <div className="AcardLeft">
@@ -71,12 +72,12 @@ class Acard extends Component {
                         <CardBody>
                             <CardTitle> Current: $123</CardTitle>
                             <CardSubtitle> 10% change today</CardSubtitle>
-                            <CardText> {this.state.data.companyName}'s CEO
-                                is {this.state.data.CEO},{this.state.data.description}</CardText>
-                            <Button onClick={() => {
-                                window.open("http://www.google.com/search?q=" + this.state.data.companyName + "&btnI");
+                            <CardText> {this.props.cardData.companyName}'s CEO
+                                is {this.props.cardData.CEO}, {this.props.cardData.description}</CardText>
+                            <Button color="info" onClick={() => {
+                                window.open("http://www.google.com/search?q=" + this.props.cardData.companyName + "&btnI");
                             }
-                            }>site</Button> <Button onClick={() => {
+                            }>site</Button> <Button color="info" onClick={() => {
                             window.open("https://www.tradingview.com/chart/?symbol=NASDAQ:" + info.symbol);
                         }}>better chart</Button>
                         </CardBody>
