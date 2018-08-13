@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="50d45257-3986-4799-a248-345ca13da1b3" name="Default" comment="test commit from webstorm">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/AContentPane.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/AContentPane.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Acard.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Acard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Acard.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Acard.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Achart.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Achart.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Achart.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Achart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/AppBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/AppBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Arepeater.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Arepeater.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -22,14 +19,14 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.46264908">
+    <splitter split-orientation="horizontal" split-proportion="0.46547619">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-          <file leaf-file-name="App.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/client/src/App.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="244">
-                  <caret line="25" column="23" lean-forward="true" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
+                <state relative-caret-position="431">
+                  <caret line="40" selection-start-line="40" selection-end-line="40" />
                   <folding>
                     <element signature="e#56#90#0" expanded="true" />
                   </folding>
@@ -40,25 +37,19 @@
           <file leaf-file-name="AContentPane.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/client/src/components/AContentPane.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="486">
+                <state relative-caret-position="489">
                   <caret line="84" column="29" selection-start-line="84" selection-start-column="29" selection-end-line="84" selection-end-column="29" />
                   <folding>
                     <element signature="e#0#39#0" expanded="true" />
-                    <element signature="e#1305#2697#0" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="AContentPane.css" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/client/src/components/AContentPane.css">
-              <provider selected="true" editor-type-id="text-editor" />
-            </entry>
-          </file>
           <file leaf-file-name="AppBar.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/client/src/components/AppBar.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="493">
+                <state relative-caret-position="292">
                   <caret line="29" column="50" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="50" />
                   <folding>
                     <element signature="e#0#26#0" expanded="true" />
@@ -70,8 +61,22 @@
           <file leaf-file-name="Arepeater.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/client/src/components/Arepeater.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="98">
-                  <caret line="92" column="52" lean-forward="true" selection-start-line="92" selection-start-column="52" selection-end-line="92" selection-end-column="52" />
+                <state relative-caret-position="278">
+                  <caret line="131" lean-forward="true" selection-start-line="131" selection-end-line="131" />
+                  <folding>
+                    <element signature="e#0#39#0" expanded="true" />
+                    <element signature="n#!!block;n#formatingDataforChartJS#0;n#Arepeater#0" />
+                    <element signature="n#!!block;n#fetch#0;n#Arepeater#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="server.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/server.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="233">
+                  <caret line="80" column="20" selection-start-line="80" selection-start-column="20" selection-end-line="80" selection-end-column="20" />
                 </state>
               </provider>
             </entry>
@@ -79,11 +84,11 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
-          <file leaf-file-name="Acard.js" pinned="false" current-in-tab="true">
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="Acard.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/client/src/components/Acard.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="482">
+                <state relative-caret-position="414">
                   <caret line="75" column="62" selection-start-line="75" selection-start-column="62" selection-end-line="75" selection-end-column="62" />
                   <folding>
                     <element signature="e#0#39#0" expanded="true" />
@@ -95,8 +100,8 @@
           <file leaf-file-name="Acard.css" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/client/src/components/Acard.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="51">
-                  <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+                <state relative-caret-position="34">
+                  <caret line="2" column="1" lean-forward="true" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
                 </state>
               </provider>
             </entry>
@@ -104,30 +109,20 @@
           <file leaf-file-name="Achart.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/client/src/components/Achart.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-354">
-                  <caret line="78" column="10" selection-start-line="78" selection-start-column="10" selection-end-line="78" selection-end-column="10" />
+                <state relative-caret-position="170">
+                  <caret line="111" column="62" selection-start-line="111" selection-start-column="48" selection-end-line="111" selection-end-column="62" />
                   <folding>
-                    <element signature="e#0#39#0" expanded="true" />
                     <element signature="e#352#354#0" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Achart.css" pinned="false" current-in-tab="false">
+          <file leaf-file-name="Achart.css" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/client/src/components/Achart.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="425">
-                  <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/server.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="438">
-                  <caret line="76" column="6" selection-start-line="76" selection-start-column="6" selection-end-line="76" selection-end-column="6" />
+                <state relative-caret-position="323">
+                  <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
                 </state>
               </provider>
             </entry>
@@ -182,16 +177,16 @@
         <option value="$PROJECT_DIR$/client/src/components/AListing.js" />
         <option value="$PROJECT_DIR$/client/src/components/aCard.js" />
         <option value="$PROJECT_DIR$/client/package.json" />
-        <option value="$PROJECT_DIR$/client/src/components/Acard.css" />
-        <option value="$PROJECT_DIR$/client/src/components/Arepeater.js" />
-        <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/client/src/components/AppBar.js" />
-        <option value="$PROJECT_DIR$/client/src/components/Achart.js" />
-        <option value="$PROJECT_DIR$/client/src/components/Achart.css" />
-        <option value="$PROJECT_DIR$/client/src/App.js" />
         <option value="$PROJECT_DIR$/client/src/components/AContentPane.css" />
         <option value="$PROJECT_DIR$/client/src/components/AContentPane.js" />
         <option value="$PROJECT_DIR$/client/src/components/Acard.js" />
+        <option value="$PROJECT_DIR$/server.js" />
+        <option value="$PROJECT_DIR$/client/src/components/Achart.js" />
+        <option value="$PROJECT_DIR$/client/src/components/Arepeater.js" />
+        <option value="$PROJECT_DIR$/client/src/App.js" />
+        <option value="$PROJECT_DIR$/client/src/components/Acard.css" />
+        <option value="$PROJECT_DIR$/client/src/components/Achart.css" />
       </list>
     </option>
   </component>
@@ -221,8 +216,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="42" />
-    <option name="y" value="154" />
+    <option name="x" value="1924" />
+    <option name="y" value="169" />
     <option name="width" value="1566" />
     <option name="height" value="860" />
   </component>
@@ -232,6 +227,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -266,7 +262,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -361,11 +356,12 @@
       <workItem from="1533854467745" duration="625000" />
       <workItem from="1534042471720" duration="7483000" />
       <workItem from="1534092984418" duration="11683000" />
+      <workItem from="1534181447153" duration="3249000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="143161000" />
+    <option name="totallyTimeSpent" value="146410000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -377,39 +373,28 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="1912" y="161" width="1616" height="876" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.09747102" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13814956" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32897604" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32897604" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32897604" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.29302832" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.19607843" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32971212" />
+      <window_info anchor="bottom" id="Version Control" order="11" weight="0.29302832" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2303523" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.2254902" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.33769062" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info id="npm" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13382508" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32897604" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.29372936" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.26143792" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32893288" />
+      <window_info anchor="bottom" id="Messages" order="8" weight="0.32893288" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32971212" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.33769062" />
-      <window_info id="Favorites" order="3" side_tool="true" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -454,6 +439,13 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1292">
+          <caret line="76" column="6" selection-start-line="76" selection-start-column="6" selection-end-line="76" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
@@ -703,9 +695,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/Arepeater.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="131" lean-forward="true" selection-start-line="131" selection-end-line="131" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+            <element signature="n#!!block;n#formatingDataforChartJS#0;n#Arepeater#0" />
+            <element signature="n#!!block;n#fetch#0;n#Arepeater#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/AppBar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
+        <state relative-caret-position="292">
           <caret line="29" column="50" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="50" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
@@ -713,19 +717,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/Arepeater.js">
+    <entry file="file://$PROJECT_DIR$/client/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="92" column="52" lean-forward="true" selection-start-line="92" selection-start-column="52" selection-end-line="92" selection-end-column="52" />
+        <state relative-caret-position="431">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
+          <folding>
+            <element signature="e#56#90#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/Acard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="75" column="62" selection-start-line="75" selection-start-column="62" selection-end-line="75" selection-end-column="62" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/Acard.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="1" lean-forward="true" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/AContentPane.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="489">
+          <caret line="84" column="29" selection-start-line="84" selection-start-column="29" selection-end-line="84" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/Achart.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-354">
-          <caret line="78" column="10" selection-start-line="78" selection-start-column="10" selection-end-line="78" selection-end-column="10" />
+        <state relative-caret-position="170">
+          <caret line="111" column="62" selection-start-line="111" selection-start-column="48" selection-end-line="111" selection-end-column="62" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
             <element signature="e#352#354#0" />
           </folding>
         </state>
@@ -733,56 +766,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/Achart.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/AContentPane.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/AContentPane.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="84" column="29" selection-start-line="84" selection-start-column="29" selection-end-line="84" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-            <element signature="e#1305#2697#0" />
-          </folding>
+        <state relative-caret-position="323">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="76" column="6" selection-start-line="76" selection-start-column="6" selection-end-line="76" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="25" column="23" lean-forward="true" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
-          <folding>
-            <element signature="e#56#90#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/Acard.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/Acard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="482">
-          <caret line="75" column="62" selection-start-line="75" selection-start-column="62" selection-end-line="75" selection-end-column="62" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="233">
+          <caret line="80" column="20" selection-start-line="80" selection-start-column="20" selection-end-line="80" selection-end-column="20" />
         </state>
       </provider>
     </entry>

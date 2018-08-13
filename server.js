@@ -1,8 +1,6 @@
 //https://mlab.com/databases/thisone/collections/users
 
-
 var company;
-
 
 const express = require('express');
 const mongoose = require('mongoose');
@@ -16,12 +14,21 @@ const path = require('path');
 const bp = require('body-parser');
 app = express();
 app.set('view engine', 'ejs');
-//global Vars
+
+
 app.use(function (req, res, next) {
-    res.locals.errors = null;
-    res.locals.theCurrentSym = null; //TODO
+    res.header('Access-Control-Allow-Origin', "*");
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
     next();
 });
+
+//TODO WTF is this?
+// app.use(function (req, res, next) {
+//     res.locals.errors = null;
+//     res.locals.theCurrentSym = null; //TODO
+//     next();
+// });
 
 // file is included here:
 //eval(fs.readFileSync('utilJSfile') + '');
@@ -29,12 +36,11 @@ app.use(function (req, res, next) {
 //var t = require('./utilJSfile');
 //console.log(t.sum(1, 3));
 //----------------------------------------
-
+//TODO WTF is this?
 app.set('views', path.join(__dirname, 'views'));
 app.use(bp.json());
 app.use(bp.urlencoded({extended: false}));
 
-// TODO
 
 // DB Config
 const db = require('./config/keys').mongoURI;
@@ -71,15 +77,12 @@ function getDataWithAxios(str) {
         .then((response) => {
             dataWithAxios = response.data;
             // console.log(x);
-
         }).catch((e) => {
         console.log(e.message);
     })
 };
 
-
 function getCompanyWithAxios(str) {
-
     var url = "https://api.iextrading.com/1.0/stock/" + str + "/company";
     axios.get(url)
         .then((response) => {
@@ -89,7 +92,6 @@ function getCompanyWithAxios(str) {
         }).catch((e) => {
         console.log(e.message);
     });
-
 };
 
 
@@ -98,7 +100,6 @@ function getCompanyWithAxios(str) {
 app.get('/:id', function (req, res) {
     dataWithAxios = "";
     getDataWithAxios(req.params.id);
-
     setTimeout(function () {
         console.log("req.params.id, is:", req.params.id);
         console.log("req.params.id,  return is:", dataWithAxios);
@@ -109,7 +110,6 @@ app.get('/:id', function (req, res) {
 app.get('/MSFT/company', function (req, res) {
     comWithAxios = "";
     getCompanyWithAxios("msft");
-
     setTimeout(function () {
         res.json(comWithAxios);
     }, 1000);
@@ -124,6 +124,4 @@ app.get('/MSFT/company', function (req, res) {
 //     }, 1000);
 // });
 
-
 app.listen(3001); //main
-

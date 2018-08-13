@@ -11,12 +11,9 @@ import AContentPane from './components/AContentPane';
 export default class PersonList extends React.Component {
 
     constructor() {
-
         super();
         this.state = {}
-
     }
-
 
     render() {
         //alt nav bar  https://reactstrap.github.io/components/navbar/
@@ -41,7 +38,6 @@ export default class PersonList extends React.Component {
 
                 <AContentPane/>
 
-                <AContentPane/>
 
 
                 <Button variant="fab" color="primary" style={style}> addIcon* </Button>
@@ -52,4 +48,3 @@ export default class PersonList extends React.Component {
 
     }
 }
-

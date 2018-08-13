@@ -3,8 +3,6 @@ import {Line} from 'react-chartjs-2';
 
 import './Achart.css';
 
-const a = [1, 10, 100, 1000, 10000];
-
 class Arepeater extends Component {
 
     constructor(props) {
@@ -136,10 +134,11 @@ class Arepeater extends Component {
             <div className="wrapper ">
                 < div className="chart">
                     <div>
+
                         {this.state.dataForRepeater.map(function (i, index) {
                             return < Line key={index} data={i}/>
-                        })
-                        }
+                        })}
+
                     </div>
                 </div>
             </div>

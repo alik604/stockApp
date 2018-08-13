@@ -1,10 +1,14 @@
 canvas {
     width: 750px;
-    height: 750px;
+    height: 950px;
+}
+
+Button{
 
 
 }
-.chart{
+
+.chart {
 
 }
 
@@ -14,6 +18,7 @@ canvas {
 
 .buttonGroupBottom {
 
+
 }
 
 .buttonGroupTop {
@@ -22,6 +27,6 @@ canvas {
 
 .wrapper {
     float: right;
-    padding-right: 5px;
+    /*  padding-right: 5px;  */
     margin-right: 40px;
 }
