@@ -1,27 +1,40 @@
 Table {
 
 }
-.AwatchList-wrapper{
+
+.AwatchList-wrapper {
 
 }
+
 .AwatchList-table {
     display: inline-block;
-    vertical-align:top;
-
-    width: 50%;
+    vertical-align: top;
+    float: left;
+    width: 40%;
     /* height: 100%; */
-
 
 }
 
 .AwatchList-order {
 
     display: inline-block;
-    vertical-align:top;
+    vertical-align: top;
 
-    width: 49%;
+    width: 39%;
+    padding-left: 10px;
+    padding-bottom: 5px;
+
+}
+
+.AwatchList-summaryAndStats {
+
+    display: inline-block;
+    vertical-align: top;
+    width: 21%;
     float: right;
     padding-bottom: 5px;
+    padding-left: 10px;
+
 }
 
 thead {

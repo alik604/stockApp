@@ -122,10 +122,13 @@ class AwatchList extends React.Component {
 
 
                 </div>
-                /* end of order */
 
-                <div>
 
+                <div className="AwatchList-summaryAndStats">
+                    <h2> Summary and Stats</h2>
+                    <h6> starting value: $100,000</h6>
+                    <h6> current value: $110,000</h6>
+                    <h6> percentage gains: 10%</h6>
 
                 </div>
             </div>

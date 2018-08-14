@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="50d45257-3986-4799-a248-345ca13da1b3" name="Default" comment="test commit from webstorm">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/AContentPane.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/AContentPane.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/AContentPane.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/AContentPane.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Acard.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Acard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/AppBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/AppBar.js" afterDir="false" />
+    <list default="true" id="50d45257-3986-4799-a248-345ca13da1b3" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/client/src/components/AwatchList.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/AwatchList.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/AwatchList.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/AwatchList.js" afterDir="false" />
     </list>
@@ -47,11 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AwatchList.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AwatchList.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/components/AwatchList.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="559">
-              <caret line="129" column="16" selection-start-line="129" selection-start-column="16" selection-end-line="129" selection-end-column="16" />
+            <state relative-caret-position="474">
+              <caret line="127" column="38" selection-start-line="127" selection-start-column="38" selection-end-line="127" selection-end-column="38" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -59,11 +53,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AwatchList.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AwatchList.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/src/components/AwatchList.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="26" />
+            <state relative-caret-position="459">
+              <caret line="30" column="26" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -127,6 +121,11 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="aug9th" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -151,13 +150,13 @@
         <option value="$PROJECT_DIR$/client/src/components/Achart.css" />
         <option value="$PROJECT_DIR$/client/src/components/Achart.js" />
         <option value="$PROJECT_DIR$/server.js" />
-        <option value="$PROJECT_DIR$/client/src/components/AwatchList.css" />
         <option value="$PROJECT_DIR$/client/src/components/AContentPane.js" />
         <option value="$PROJECT_DIR$/client/src/components/AContentPane.css" />
         <option value="$PROJECT_DIR$/client/src/App.js" />
         <option value="$PROJECT_DIR$/client/src/components/Acard.css" />
         <option value="$PROJECT_DIR$/client/src/components/AppBar.js" />
         <option value="$PROJECT_DIR$/client/src/components/AwatchList.js" />
+        <option value="$PROJECT_DIR$/client/src/components/AwatchList.css" />
       </list>
     </option>
   </component>
@@ -344,10 +343,18 @@
       <workItem from="1534181447153" duration="9119000" />
       <workItem from="1534203980921" duration="5862000" />
     </task>
+    <task id="LOCAL-00001" summary="test commit from webstorm">
+      <created>1534212542160</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1534212542160</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="160324000" />
+    <option name="totallyTimeSpent" value="161119000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -364,10 +371,11 @@
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11485775" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32897604" />
+      <window_info anchor="bottom" id="Messages" order="8" weight="0.3278867" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32971212" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.29302832" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.18409586" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.19934641" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.27124184" />
@@ -385,7 +393,6 @@
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.29302832" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.18409586" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Messages" order="8" weight="0.32893288" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32971212" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -427,6 +434,7 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="test commit from webstorm" />
     <option name="LAST_COMMIT_MESSAGE" value="test commit from webstorm" />
   </component>
@@ -750,20 +758,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/AwatchList.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/AwatchList.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="559">
-          <caret line="129" column="16" selection-start-line="129" selection-start-column="16" selection-end-line="129" selection-end-column="16" />
+        <state relative-caret-position="474">
+          <caret line="127" column="38" selection-start-line="127" selection-start-column="38" selection-end-line="127" selection-end-column="38" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/AwatchList.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="30" column="26" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
         </state>
       </provider>
     </entry>
