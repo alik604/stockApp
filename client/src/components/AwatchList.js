@@ -74,7 +74,7 @@ class AwatchList extends React.Component {
                 </div>
 
                 <div className="AwatchList-order">
-
+                    <h6> /* TODO: dear reader, I want this to stay in center of right side, when the watch list get (vey) long... will use same strategy as FAB (floating action button)*/</h6>
                     <Form>
 
                         <FormGroup>
@@ -122,8 +122,12 @@ class AwatchList extends React.Component {
 
 
                 </div>
+                /* end of order */
+
+                <div>
 
 
+                </div>
             </div>
         );
     }

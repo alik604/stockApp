@@ -77,13 +77,13 @@ class AContentPane extends Component {
 
 
     render() {
-        return <div>
+        return <div className="AContentPane-wrapper">
 
 
-            <Acard cardData={this.state.cardData}/>
+            <Acard cardData={this.state.cardData} className="card"/>
 
-            <Achart chartData={this.state.chartData}/>
-            <Achart chartData={this.state.chartData}/>
+            <Achart chartData={this.state.chartData} className="chart"/>
+            <Achart chartData={this.state.chartData} className="chart"/>
 
         </div>
     }

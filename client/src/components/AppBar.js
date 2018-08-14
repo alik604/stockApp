@@ -36,12 +36,12 @@ export default class AppBar extends React.Component {
         return (
             <div>
                 <Navbar color="dark" className="navbar-dark navbar-expand-sm" light expand="md">
-                    <NavbarBrand href="/">"borrowed" from reactstrap :) </NavbarBrand>
+                    <NavbarBrand href="/">"reactstrap", React Bootstrap 4 components used :) </NavbarBrand>
                     <NavbarToggler onClick={this.toggle}/>
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
                             <NavItem>
-                                <NavLink href="http://localhost:3000">Components</NavLink>
+                                <NavLink href="http://localhost:3000">Log in</NavLink>
                             </NavItem>
                             <NavItem>
                                 <NavLink href="https://github.com/alik604">GitHub</NavLink>

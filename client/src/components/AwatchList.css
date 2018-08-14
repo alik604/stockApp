@@ -1,13 +1,24 @@
 Table {
 
 }
+.AwatchList-wrapper{
 
+}
 .AwatchList-table {
+    display: inline-block;
+    vertical-align:top;
+
     width: 50%;
     /* height: 100%; */
+
+
 }
 
 .AwatchList-order {
+
+    display: inline-block;
+    vertical-align:top;
+
     width: 49%;
     float: right;
     padding-bottom: 5px;

@@ -44,9 +44,9 @@ export default class PersonList extends React.Component {
 
 
                 <AContentPane/>
+                <AContentPane/>
 
-
-                <Button variant="fab" color="primary" style={style}> addIcon* </Button>
+                <Button variant="fab" color="primary" style={style}> add icon to floating action btn* </Button>
 
 
             </div>
