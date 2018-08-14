@@ -3,6 +3,7 @@ import React from 'react';
 import {Button} from 'reactstrap';
 import AppBar from './components/AppBar';
 import AContentPane from './components/AContentPane';
+import AwatchList from './components/AwatchList';
 
 
 // import Achart from './components/Achart';
@@ -31,18 +32,23 @@ export default class PersonList extends React.Component {
 
 // <Button variant="contained" color="primary">btn via reactstrap</Button>
         // <Arepeater/>
+        //  <button className="btn btn-danger float-right">Example Button floated right</button>
         return (
 
             <div>
+
                 <AppBar/>
+
+
+                <AwatchList/>
+
 
                 <AContentPane/>
 
 
-
                 <Button variant="fab" color="primary" style={style}> addIcon* </Button>
 
-                <button className="btn btn-danger float-right">Example Button floated right</button>
+
             </div>
         );
 

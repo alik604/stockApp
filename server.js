@@ -12,8 +12,11 @@ const posts = require('./routes/api/posts');
 
 const path = require('path');
 const bp = require('body-parser');
-app = express();
-app.set('view engine', 'ejs');
+
+
+var app = express();
+
+app.set('view engine', 'ejs'); //TODO remove
 
 
 app.use(function (req, res, next) {
@@ -23,12 +26,12 @@ app.use(function (req, res, next) {
     next();
 });
 
-//TODO WTF is this?
-// app.use(function (req, res, next) {
-//     res.locals.errors = null;
-//     res.locals.theCurrentSym = null; //TODO
-//     next();
-// });
+//TODO WTF is this needed?
+app.use(function (req, res, next) {
+    res.locals.errors = null;
+    res.locals.theCurrentSym = null; //TODO
+    next();
+});
 
 // file is included here:
 //eval(fs.readFileSync('utilJSfile') + '');
@@ -36,7 +39,7 @@ app.use(function (req, res, next) {
 //var t = require('./utilJSfile');
 //console.log(t.sum(1, 3));
 //----------------------------------------
-//TODO WTF is this?
+//TODO WTF is this needed?
 app.set('views', path.join(__dirname, 'views'));
 app.use(bp.json());
 app.use(bp.urlencoded({extended: false}));
@@ -98,7 +101,7 @@ function getCompanyWithAxios(str) {
 // ----------------------------------
 
 app.get('/:id', function (req, res) {
-    dataWithAxios = "";
+   // dataWithAxios = "";
     getDataWithAxios(req.params.id);
     setTimeout(function () {
         console.log("req.params.id, is:", req.params.id);

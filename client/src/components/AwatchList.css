@@ -1,0 +1,35 @@
+Table {
+
+}
+
+.AwatchList-table {
+    width: 50%;
+    /* height: 100%; */
+}
+
+.AwatchList-order {
+    width: 49%;
+    float: right;
+    padding-bottom: 5px;
+}
+
+thead {
+    background-color: rgb(120, 175, 162);
+    /* color: white; */
+}
+
+th {
+
+    height: 45px;
+}
+
+td {
+
+    height: 25px;
+}
+
+tr {
+
+}
+
+/*tr:hover {background-color: #4f4f4f;}     /* does not override reactstrap striping */

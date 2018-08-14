@@ -105,7 +105,7 @@ data view
         //   console.log(this.state.chartDataOBJ);
         return (
 
-            <div className="wrapper ">
+            <div className="wrapper">
 
                 <div className="btn-group-vertical">
                     <ButtonToolbar className='buttonToolbar'>
