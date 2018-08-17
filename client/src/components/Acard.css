@@ -1,8 +1,26 @@
+<<<<<<< HEAD
 .wrapper {
     float: left;
 }
 
+<<<<<<< HEAD
 .AcardLeft{
     width: 250px ;
     height: 600px ;
+=======
+.AcardLeft {
+    width: 250px;
+    height: 800px;
+=======
+.wrapper {
+
+    float: left;
+
+}
+
+.AcardLeft{
+    width: 250px ;
+    height: 800px ;
+>>>>>>> 4c7cf1752c48124e48a5fb61c6fefdbbb8566c51
+>>>>>>> master
 }
