@@ -21,7 +21,7 @@ class AwatchList extends React.Component {
 
     };// TODO hard code values for testing
 
-    onSubmit = e => {
+    onSubmit = (e) => {
         e.preventDefault();
 
         //TODO client side validation
@@ -68,13 +68,17 @@ class AwatchList extends React.Component {
 
     componentDidMount() {
 
+        fetch('Http://localhost:3001/getAllWatchListData')
+            .then(res => res.json())
+            .then(allData => {
+                console.log("allData: " + allData);
+            }).catch(err => {
+            console.log("err in componentDidMount of AwatchList.js. attempted to get data from /getAllWatchListData endpoint. err is:  " + err);
+        });
+
 
     }
 
-    confirmBuy() {
-
-
-    }
 
     render() {
 //http://reactstrap.github.io/components/tables/
