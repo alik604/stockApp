@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 canvas {
 
     width: 700px;
@@ -31,4 +32,39 @@ canvas {
     float: left;
     border-left: 1px solid #000;
     height: 200px;
+=======
+canvas {
+
+    width: 700px ;
+    height: 400px ;
+
+}
+
+.left {
+    margin-left: 20px;
+    float: left;
+
+}
+
+.buttonGroupLeft {
+
+}
+
+.right {
+    margin-left: 20px;
+    float: left;
+
+}
+
+.wrapper {
+float: right;
+    padding-right: 5px;
+    margin-right: 50px;
+}
+
+.t {
+    float: left;
+    border-left: 1px solid #000;
+    height: 200px;
+>>>>>>> 4c7cf1752c48124e48a5fb61c6fefdbbb8566c51
 }
