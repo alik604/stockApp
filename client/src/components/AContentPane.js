@@ -61,7 +61,7 @@ class AContentPane extends Component {
                     }
 
                 });
-            });
+            }).catch((err) => console.log("data err: " + err));
 
         ////=================
 
@@ -71,7 +71,7 @@ class AContentPane extends Component {
             .then(cardData => {
                 this.setState({cardData: cardData});
                 // console.log(this.state.data);
-            });
+            }).catch((err) => console.log("company err: " + err));
 
     }
 

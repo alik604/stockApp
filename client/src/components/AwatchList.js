@@ -7,8 +7,71 @@ import './AwatchList.css';
 
 class AwatchList extends React.Component {
 
+// https://raw.githubusercontent.com/benawad/basic-react-form/master/src/Form.js
+    /**
+     form feild #2 & #4 are not working. hardcoded values to move on words.
+     */
+    state = {
+        sym: "AAPL",
+        buy: true,
+        sell: false,
+        quantity: "100",
+        typeOfOrder: "market price",
+        price: "123"
+
+    };// TODO hard code values for testing
+
+    onSubmit = e => {
+        e.preventDefault();
+
+        //TODO client side validation
+
+
+        // // this.props.onSubmit(this.state);
+        // this.setState({
+        //     sym: "",
+        //     buyOrSell: "",
+        //     quantity: "",
+        //     typeOfOrder: "",
+        //     price: ""
+        // });
+        // this.props.onChange({
+        //     sym: "",
+        //     buyOrSell: "",
+        //     quantity: "",
+        //     typeOfOrder: "",
+        //     price: ""
+        // });
+
+
+        fetch("Http://localhost:3001/AddToWatchList", {
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(this.state)
+        })
+            .then(function (response) { //TODO
+                return response.json();
+            })
+            .then(function (data) {
+                console.log(data)
+            });
+    };
+    // change = e => {
+    //     this.props.onChange({[e.target.name]: e.target.value});
+    //     this.setState({
+    //         [e.target.name]: e.target.value
+    //     });
+    // };
 
     componentDidMount() {
+
+
+    }
+
+    confirmBuy() {
 
 
     }
@@ -73,35 +136,57 @@ class AwatchList extends React.Component {
                     </Table>
                 </div>
 
+
                 <div className="AwatchList-order">
                     <h6> /* TODO: dear reader, I want this to stay in center of right side, when the watch list get (vey) long... will use same strategy as FAB (floating action button)*/</h6>
                     <Form>
 
                         <FormGroup>
                             <Label for="stockSym">stock Sym</Label>
-                            <Input valid/>
+                            <Input name="sym"
+                                   placeholder="sym here :)"
+                                   value={this.state.sym}
+                                   onChange={e => this.setState({sym: e.target.value})}
+                                   valid/>
                             <FormFeedback valid>I need to think of a good validation strategy :( </FormFeedback>
-
                         </FormGroup>
 
                         <FormGroup>
-                            <Label for="exampleCustomSelect">Buy/Sell</Label>
-                            <CustomInput type="select" id="exampleCustomSelect" name="customSelect">
+                            <Label for="buyOrSell">Buy/Sell</Label>
+                            <CustomInput type="select"
+                                         id="buyOrSell">
 
-                                <option>Buy</option>
+                                <option id="buy"
+                                        name="buy"
+                                        onClick={() => {
+                                            this.setState({buy: "asdasd"})
+                                        }}
+                                >Buy
+                                </option>
                                 /*value pram???  */
-                                <option>Sell</option>
+                                <option id="sell"
+                                        name="sell"
+                                        value={"sell is true"}
+                                        onChange={e => this.setState({sell: e.target.value})}
+                                >Sell
+                                </option>
 
                             </CustomInput>
                         </FormGroup>
 
                         <FormGroup>
-                            <Label for="exampleNumber">Quantity</Label>
-                            <Input type="number" name="number" id="exampleNumber" placeholder="Quantity"/>
+                            <Label for="Quantity">Quantity</Label>
+                            <Input type="number"
+                                   name="Quantity"
+                                   id="Quantity"
+                                   placeholder="Quantity"
+                                   value={this.state.quantity}
+                                   onChange={e => this.setState({quantity: e.target.value})}
+                            />
                         </FormGroup>
 
                         <FormGroup>
-                            <Label for="exampleCheckbox">Radios. mutually exclusive (only one at once) </Label>
+                            <Label for="exampleCheckbox">Radios. mutually exclusive (only one at once)</Label>
                             <div>
                                 <CustomInput type="radio" id="exampleCustomRadio" name="customRadio"
                                              label="market price"/>
@@ -111,13 +196,18 @@ class AwatchList extends React.Component {
                         </FormGroup>
 
                         <FormGroup>
-                            <Label for="exampleNumber">Price</Label>
-                            <Input type="number" name="number" id="PriceField"
-                                   placeholder="Price? (enabled IFF limit XOR stop)"/>
+                            <Label for="price">Price</Label>
+                            <Input type="number"
+                                   name="price"
+                                   id="price"
+                                   placeholder="Price? (enabled IFF limit XOR stop)"
+                                   value={this.state.price}
+                                   onChange={e => this.setState({price: e.target.value})}
+                            />
                         </FormGroup>
 
 
-                        <Button color="danger" block={true}> confirm? </Button>
+                        <Button color="danger" block={true} onClick={(e) => this.onSubmit(e)}> confirm? </Button>
                     </Form>
 
 

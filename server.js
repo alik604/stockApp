@@ -1,23 +1,33 @@
 //https://mlab.com/databases/thisone/collections/users
-
 var company;
 
 const express = require('express');
 const mongoose = require('mongoose');
 const passport = require('passport');
+const bp = require('body-parser');
 
-const users = require('./routes/api/users');
+const path = require('path');
+var app = express();
+
+const watchItemModel = require('./models/watchItem');
+/**
+ * watchItemModel's  _id ants a  mongoose.Types.ObjectId(), NOT A OBJECT
+ */
+
+const users = require('./routes/api/users'); //TODO remove this sameple code
 const profile = require('./routes/api/profile');
 const posts = require('./routes/api/posts');
 
-const path = require('path');
-const bp = require('body-parser');
+// DB Config
+const db = require('./config/keys').mongoURI;
 
+// Connect to MongoDB
+mongoose
+    .connect(db)
+    .then(() => console.log('MongoDB Connected'))
+    .catch(err => console.log("FML a mongo error... " + err));
 
-var app = express();
-
-app.set('view engine', 'ejs'); //TODO remove
-
+//app.set('view engine', 'ejs'); //TODO remove
 
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', "*");
@@ -44,16 +54,6 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(bp.json());
 app.use(bp.urlencoded({extended: false}));
 
-
-// DB Config
-const db = require('./config/keys').mongoURI;
-
-// Connect to MongoDB
-mongoose
-    .connect(db)
-    .then(() => console.log('MongoDB Connected'))
-    .catch(err => console.log("FML... " + err));
-
 // Passport middleware
 app.use(passport.initialize());
 
@@ -61,20 +61,20 @@ app.use(passport.initialize());
 require('./config/passport')(passport);
 
 // Use Routes
-app.use('/api/users', users);
-app.use('/api/profile', profile);
-app.use('/api/posts', posts);
+//app.use('/api/users', users);
+//app.use('/api/profile', profile);
+//app.use('/api/posts', posts);
 
 
 //--------------
 
-const axios = require('axios');
+const axios = require('axios'); //TODO move to top and make this look good
 
 var dataWithAxios;
 var comWithAxios;
 
 function getDataWithAxios(str) {
-    console.log("dssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss " + str)
+    //   console.log("------------------------------------------------------------------------------------------- " + str)
     var url = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" + str + "&outputsize=compact&apikey=ZYE987WC2KYKC29H";
     axios.get(url)
         .then((response) => {
@@ -101,11 +101,11 @@ function getCompanyWithAxios(str) {
 // ----------------------------------
 
 app.get('/:id', function (req, res) {
-   // dataWithAxios = "";
+    // dataWithAxios = "";
     getDataWithAxios(req.params.id);
     setTimeout(function () {
-        console.log("req.params.id, is:", req.params.id);
-        console.log("req.params.id,  return is:", dataWithAxios);
+        //  console.log("req.params.id, is:", req.params.id);
+        //  console.log("req.params.id,  return is:", dataWithAxios);
         res.json(dataWithAxios);
     }, 1000);
 });
@@ -126,5 +126,96 @@ app.get('/MSFT/company', function (req, res) {
 //         res.json(comWithAxios);
 //     }, 1000);
 // });
+
+/** DB related shit --------------------------------------------------------------------------------------------------------------------------------------
+ *
+ */
+
+
+app.post('/AddToWatchList', function (req, res, next) { //TODO WTF is next for; how to use res effectively?
+
+
+    console.log(req.body.sym);
+    console.log("buy?: " + req.body.buy);
+    console.log("sell?: " + req.body.sell);
+    console.log(req.body.quantity);
+    console.log(req.body.typeOfOrder);
+    console.log(req.body.price);
+
+    //model is called watchItemModel
+
+    const watchItem = new watchItemModel({
+        _id: new mongoose.Types.ObjectId(),
+        sym: req.body.sym,
+        buy: req.body.buy,
+        sell: req.body.sell,
+        quantity: req.body.quantity,
+        typeOfOrder: req.body.typeOfOrder,
+        price: req.body.price
+    });
+
+    watchItem.save().then(res => {
+            // console.log(res)
+        }
+    ).catch(err => {
+        console.log(err)
+    });
+
+    var id = "5b763bec473cb9081403a8e5";
+    watchItemModel.findById(id).exec().then(doc => {
+        console.log(doc);
+    }).catch(e => {
+        console.log(e);
+    });
+
+    //res.send({isAllGud: true}); //TODO
+    res.status(200).json({isAllGud: true}); //TODO
+
+    res.end();
+
+});//end of post('/AddToWatchList')
+
+
+app.get('/getAllWatchListData', function (req, res) {
+    //model is called watchItemModel
+//https://www.youtube.com/watch?v=WDrU305J1yw 24mins mark
+
+    watchItemModel.find().exec().then(docs => {
+        if (docs.length >= 0) { //TODO needed?
+            docs = null;
+        }
+        console.log("------------------------", docs);
+        res.status(200).json(docs);
+    }).catch(e => {
+        console.log(e);
+        res.status(500).json({
+            error: e
+        });
+    });
+
+
+    setTimeout(function () {
+        res.json(null);
+    }, 1000);
+
+
+});
+
+app.delete("/sell/:id", (req, res, next) => {
+    const id = req.params.id;
+    //model is called watchItemModel
+
+    watchItemModel.remove({_id: id})
+        .exec()
+        .then(result => {
+            res.status(200).json(result);
+        })
+        .catch(err => {
+            res.status(500).json({err}); // yay! es6
+            console.log("deleting error " + err);
+        });
+
+
+});
 
 app.listen(3001); //main
