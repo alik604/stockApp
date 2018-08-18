@@ -17,7 +17,8 @@ class AwatchList extends React.Component {
         sell: false,
         quantity: "100",
         typeOfOrder: "market price",
-        price: "123"
+        price: "123",
+        allDataWatchList: []
 
     };// TODO hard code values for testing
 
@@ -67,14 +68,40 @@ class AwatchList extends React.Component {
     // };
 
     componentDidMount() {
+        fetch('http://localhost:3001/getAllWatchListData/a')
+            .then(res => res.json())
+            .then(data => {
+                    // console.log("data for all watch list items: ", data);
+                    // console.log(data[0]._id);
+                    // console.log(data[0].sym);
+                    // console.log(data[0].price);
+                    // console.log(data[0].quantity);
 
+
+                    // var arry = [];
+                    // data.forEach((e) => {
+                    //     arry.push(e);
+                    // });
+                    this.setState({allDataWatchList: data});
+                    // console.log(" data: "+ data);
+                    // console.log("state data: "+ this.state.allDataWatchList);
+                    // {/*<tr>*/}
+                    //     {/*<td><Badge color="info"> AAPl </Badge> Apple</td>*/}
+                    //     {/*<td>$123</td>*/}
+                    //     {/*<td>$133</td>*/}
+                    //     {/*<td>111</td>*/}
+                    //     {/*<td>*/}
+                    //         {/*<Button color="danger" block={true}> Sell me</Button>*/}
+                    //     {/*</td>*/}
+                    // {/*</tr>*/}
+
+                }
+            ).catch(err => {
+            console.log("err: ", err)
+        });
 
     }
 
-    confirmBuy() {
-
-
-    }
 
     render() {
 //http://reactstrap.github.io/components/tables/
@@ -101,17 +128,7 @@ class AwatchList extends React.Component {
                         <tbody>
 
                         <tr>
-                            <td><Badge color="info"> AAPl </Badge> Apple</td>
-                            <td>$123</td>
-                            <td>$133</td>
-                            <td>111</td>
-                            <td>
-                                <Button color="danger" block={true}> Sell me</Button>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td><Badge color="info"> MSFT </Badge> Microsoft Corporation</td>
+                            <td><Badge color="info"> MSFT </Badge> Microsoft</td>
                             <td>$456</td>
                             <td>$466</td>
                             <td>222</td>
@@ -120,15 +137,19 @@ class AwatchList extends React.Component {
                             </td>
                         </tr>
 
-                        <tr>
-                            <td><Badge color="info"> GOOGL </Badge> Alphabet Inc Class A</td>
-                            <td>$789</td>
-                            <td>$799</td>
-                            <td>333</td>
-                            <td>
-                                <Button color="danger" block={true}> Sell me </Button>
-                            </td>
-                        </tr>
+                        {this.state.allDataWatchList.map((elem) => {
+                            return <tr key={elem._id}>
+                                <td><Badge color="info">         {elem.sym}</Badge> {elem.sym}</td>
+                                <td>{elem.price}</td>
+                                <td>{elem.price}</td>
+                                <td>{elem.quantity} </td>
+                                <td>
+                                    <Button color="danger" block={true}> Sell me</Button>
+                                </td>
+                            </tr>
+
+                        })}
+
 
                         </tbody>
 
@@ -138,7 +159,8 @@ class AwatchList extends React.Component {
 
 
                 <div className="AwatchList-order">
-                    <h6> /* TODO: dear reader, I want this to stay in center of right side, when the watch list get (vey) long... will use same strategy as FAB (floating action button)*/</h6>
+                    <h6> TODO: dear reader, I want this to stay in center of right side, when the watch list get (vey)
+                        long... will use same strategy as FAB (floating action button)*/</h6>
                     <Form>
 
                         <FormGroup>
@@ -163,7 +185,7 @@ class AwatchList extends React.Component {
                                         }}
                                 >Buy
                                 </option>
-                                /*value pram???  */
+                                {/*value pram???  */}
                                 <option id="sell"
                                         name="sell"
                                         value={"sell is true"}

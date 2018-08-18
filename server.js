@@ -156,17 +156,18 @@ app.post('/AddToWatchList', function (req, res, next) { //TODO WTF is next for; 
 
     watchItem.save().then(res => {
             // console.log(res)
+            console.log("saved");
         }
     ).catch(err => {
         console.log(err)
     });
 
-    var id = "5b763bec473cb9081403a8e5";
-    watchItemModel.findById(id).exec().then(doc => {
-        console.log(doc);
-    }).catch(e => {
-        console.log(e);
-    });
+    // var id = "5b763bec473cb9081403a8e5";
+    // watchItemModel.findById(id).exec().then(doc => {
+    //     console.log(doc);
+    // }).catch(e => {
+    //     console.log("find item with ID: ",e);
+    // });
 
     //res.send({isAllGud: true}); //TODO
     res.status(200).json({isAllGud: true}); //TODO
@@ -176,28 +177,21 @@ app.post('/AddToWatchList', function (req, res, next) { //TODO WTF is next for; 
 });//end of post('/AddToWatchList')
 
 
-app.get('/getAllWatchListData', function (req, res) {
+app.get('/getAllWatchListData/a', function (req, res) {
     //model is called watchItemModel
 //https://www.youtube.com/watch?v=WDrU305J1yw 24mins mark
-
     watchItemModel.find().exec().then(docs => {
-        if (docs.length >= 0) { //TODO needed?
-            docs = null;
+        if (docs.length <= 0) { //TODO needed?
+            docs = {isEmpty: true};
         }
-        console.log("------------------------", docs);
+        //    console.log("------------------------", docs);
         res.status(200).json(docs);
     }).catch(e => {
-        console.log(e);
-        res.status(500).json({
-            error: e
-        });
+        // console.log(e);
+        // res.status(500).json({
+        //     error: e
+        // });
     });
-
-
-    setTimeout(function () {
-        res.json(null);
-    }, 1000);
-
 
 });
 
