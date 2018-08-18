@@ -1,8 +1,7 @@
 import React from 'react';
-//import axios from 'axios';
 import {Button} from 'reactstrap';
 import AppBar from './components/AppBar';
-import AContentPane from './components/AContentPane';
+import Arepeater from './components/Arepeater';
 import AwatchList from './components/AwatchList';
 
 
@@ -11,10 +10,29 @@ import AwatchList from './components/AwatchList';
 
 export default class PersonList extends React.Component {
 
-    constructor() {
-        super();
-        this.state = {}
+    constructor(props) {
+        super(props);
+        this.state = {
+            allDataWatchList: []
+        }
     }
+
+    componentDidMount() {
+        fetch('http://localhost:3001/getAllWatchListData')
+            .then(res => res.json())
+            .then(data => {
+                    // console.log("data for all watch list items: ", data);
+
+
+                    this.setState({allDataWatchList: data});
+
+                }
+            ).catch(err => {
+            console.log("err: ", err)
+        });
+
+    }
+
 
     render() {
         //alt nav bar  https://reactstrap.github.io/components/navbar/
@@ -31,7 +49,7 @@ export default class PersonList extends React.Component {
         };
 
 // <Button variant="contained" color="primary">btn via reactstrap</Button>
-        // <Arepeater/>
+
         //  <button className="btn btn-danger float-right">Example Button floated right</button>
         return (
 
@@ -40,11 +58,10 @@ export default class PersonList extends React.Component {
                 <AppBar/>
 
 
-                <AwatchList/>
+                <AwatchList watchListData={this.state.allDataWatchList}/>
 
+                <Arepeater watchListData={this.state.allDataWatchList}/>
 
-                <AContentPane/>
-                <AContentPane/>
 
                 <Button variant="fab" color="primary" style={style}> add icon to floating action btn* </Button>
 

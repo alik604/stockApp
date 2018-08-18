@@ -6,9 +6,11 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const bp = require('body-parser');
 
+const app = express();
+const axios = require('axios');
 const path = require('path');
-var app = express();
 
+const StatsAndSummaryModel = require('./models/StatsAndSummary');
 const watchItemModel = require('./models/watchItem');
 /**
  * watchItemModel's  _id ants a  mongoose.Types.ObjectId(), NOT A OBJECT
@@ -66,19 +68,9 @@ require('./config/passport')(passport);
 //app.use('/api/posts', posts);
 
 
-//--------------
-
-const axios = require('axios'); //TODO move to top and make this look good
-
-var comWithAxios;
-
-
-function getCompanyWithAxios(str) {
-
-}
-
-
-// ----------------------------------
+/** RESTFUL API end Points below ------------------------------------------------
+ *
+ */
 
 app.get('/getDataForGraph/:id', function (req, res) {
     var url = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" + req.params.id + "&outputsize=compact&apikey=ZYE987WC2KYKC29H";
@@ -102,21 +94,34 @@ app.get('/getCompanyData/:id', function (req, res) {
 
 });
 
-// app.get('/:ii/:id', function (req, res) { //TODO fix
-//     comWithAxios = "";
-//     getCompanyWithAxios(req.params.id);
-//
-//     setTimeout(function () {
-//         res.json(comWithAxios);
-//     }, 1000);
-// });
-
 /** DB related shit --------------------------------------------------------------------------------------------------------------------------------------
  *
  */
 
+var updateStatAndSum = function () {
+    /*
+        //model is called StatsAndSummaryModel
+        const statAndSum = new StatsAndSummaryModel({
+            _id: new mongoose.Types.ObjectId(),
+            startingVal: 100000,
+            currentVal: 110000,
+            percentageGain: (110000 / 100000),
+            numbOfBuys: 10,
+            numbOfSells: 8
+            // ,startDate: new Date()
+        });
 
-app.post('/AddToWatchList', function (req, res, next) { //TODO WTF is next for; how to use res effectively?
+        statAndSum.save().then(res => {
+            console.log("res: " + res);
+            console.log("saved");
+        }).catch(err => {
+            console.log(err)
+        });
+    */
+};
+
+
+app.post('/addToWatchList', function (req, res, next) { //TODO WTF is next for; how to use res effectively?
 
 
     console.log(req.body.sym);
@@ -162,7 +167,7 @@ app.post('/AddToWatchList', function (req, res, next) { //TODO WTF is next for; 
 });//end of post('/AddToWatchList')
 
 
-app.get('/getAllWatchListData/a', function (req, res) {
+app.get('/getAllWatchListData', function (req, res) {
     //model is called watchItemModel
 //https://www.youtube.com/watch?v=WDrU305J1yw 24mins mark
     watchItemModel.find().exec().then(docs => {
@@ -183,7 +188,7 @@ app.get('/getAllWatchListData/a', function (req, res) {
     });
 });
 
-app.post("/sell", (req, res, next) => { //TODO FUBAR
+app.post("/sell", (req, res) => { //TODO FUBAR
     try {
         console.log(" it works!" + req.body);
         console.log(req.body.id);
@@ -191,7 +196,7 @@ app.post("/sell", (req, res, next) => { //TODO FUBAR
 
         //model is called watchItemModel
 
-        watchItemModel.remove({_id: id}).exec().then(result => {
+        watchItemModel.remove({_id: id}).exec().then(function (result) {
             console.log("result: " + result);
             console.log("deleted id: " + id);
             res.status(200).json(result);

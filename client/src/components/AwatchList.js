@@ -6,7 +6,6 @@ import './AwatchList.css';
 
 
 class AwatchList extends React.Component {
-
 // https://raw.githubusercontent.com/benawad/basic-react-form/master/src/Form.js
     /**
      form feild #2 & #4 are not working. hardcoded values to move on words.
@@ -21,7 +20,6 @@ class AwatchList extends React.Component {
         allDataWatchList: []
 
     };// TODO hard code values for testing
-
     onSubmit = e => {
         e.preventDefault();
 
@@ -45,7 +43,7 @@ class AwatchList extends React.Component {
         // });
 
 //TODO dont send unneeded shit
-        fetch("Http://localhost:3001/AddToWatchList", {
+        fetch("Http://localhost:3001/addToWatchList", {
             method: "POST",
             headers: {
                 'Accept': 'application/json',
@@ -60,13 +58,6 @@ class AwatchList extends React.Component {
                 console.log(data)
             });
     };
-    // change = e => {
-    //     this.props.onChange({[e.target.name]: e.target.value});
-    //     this.setState({
-    //         [e.target.name]: e.target.value
-    //     });
-    // };
-
     onDelete = (e, id) => { //TODO FUBAR
         e.preventDefault();
         var x = "http://localhost:3001/sell";
@@ -88,9 +79,21 @@ class AwatchList extends React.Component {
         });
 
     };
+    // change = e => {
+    //     this.props.onChange({[e.target.name]: e.target.value});
+    //     this.setState({
+    //         [e.target.name]: e.target.value
+    //     });
+    // };
+
+    constructor(props) {
+        super(props);
+
+    }
 
     componentDidMount() {
-        fetch('http://localhost:3001/getAllWatchListData/a')
+
+        fetch('http://localhost:3001/getAllWatchListData')
             .then(res => res.json())
             .then(data => {
                     // console.log("data for all watch list items: ", data);

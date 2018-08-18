@@ -28,7 +28,6 @@ class AContentPane extends Component {
                     closing.push(parseFloat((chartData["Time Series (Daily)"][x]['4. close'])));
                     date.push("" + x);
                 }
-
                 date.reverse();
                 closing.reverse();
 
@@ -65,16 +64,13 @@ class AContentPane extends Component {
 
         ////=================
 
-
         fetch('http://localhost:3001/getCompanyData/MSFT')
             .then(res => res.json())
             .then(cardData => {
                 this.setState({cardData: cardData});
                 // console.log(this.state.data);
             }).catch((err) => console.log("company err: " + err));
-
     }
-
 
     render() {
         return <div className="AContentPane-wrapper">
