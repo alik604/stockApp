@@ -21,7 +21,7 @@ class AContentPane extends Component {
         let date = [];
         let closing = [];
 
-        fetch('Http://localhost:3001/MSFT')
+        fetch('http://localhost:3001/getDataForGraph/MSFT')
             .then(res => res.json())
             .then(chartData => {
                 for (var x in chartData["Time Series (Daily)"]) {
@@ -66,7 +66,7 @@ class AContentPane extends Component {
         ////=================
 
 
-        fetch('Http://localhost:3001/MSFT/company')
+        fetch('http://localhost:3001/getCompanyData/MSFT')
             .then(res => res.json())
             .then(cardData => {
                 this.setState({cardData: cardData});

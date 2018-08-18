@@ -28,6 +28,10 @@ const WatchSchema = new Schema({
     price: {
         type: Number,
         required: true
+    },
+    dataOfLastUpDate:{
+        type: Date,
+        required: false
     }
 });
 

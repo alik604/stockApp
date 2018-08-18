@@ -70,52 +70,36 @@ require('./config/passport')(passport);
 
 const axios = require('axios'); //TODO move to top and make this look good
 
-var dataWithAxios;
 var comWithAxios;
 
-function getDataWithAxios(str) {
-    //   console.log("------------------------------------------------------------------------------------------- " + str)
-    var url = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" + str + "&outputsize=compact&apikey=ZYE987WC2KYKC29H";
-    axios.get(url)
-        .then((response) => {
-            dataWithAxios = response.data;
-            // console.log(x);
-        }).catch((e) => {
-        console.log(e.message);
-    })
-};
 
 function getCompanyWithAxios(str) {
-    var url = "https://api.iextrading.com/1.0/stock/" + str + "/company";
-    axios.get(url)
-        .then((response) => {
-            comWithAxios = response.data;
-            //  console.log(comWithAxios);
 
-        }).catch((e) => {
-        console.log(e.message);
-    });
-};
+}
 
 
 // ----------------------------------
 
-app.get('/:id', function (req, res) {
-    // dataWithAxios = "";
-    getDataWithAxios(req.params.id);
-    setTimeout(function () {
-        //  console.log("req.params.id, is:", req.params.id);
-        //  console.log("req.params.id,  return is:", dataWithAxios);
-        res.json(dataWithAxios);
-    }, 1000);
+app.get('/getDataForGraph/:id', function (req, res) {
+    var url = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" + req.params.id + "&outputsize=compact&apikey=ZYE987WC2KYKC29H";
+    axios.get(url)
+        .then((response) => {
+            res.json(response.data);
+        }).catch((e) => {
+        console.log(e.message);
+    });
 });
 
-app.get('/MSFT/company', function (req, res) {
-    comWithAxios = "";
-    getCompanyWithAxios("msft");
-    setTimeout(function () {
-        res.json(comWithAxios);
-    }, 1000);
+app.get('/getCompanyData/:id', function (req, res) {
+
+    var url = "https://api.iextrading.com/1.0/stock/" + req.params.id + "/company";
+    axios.get(url)
+        .then((response) => {
+            res.json(response.data);
+        }).catch((e) => {
+        console.log(e.message);
+    });
+
 });
 
 // app.get('/:ii/:id', function (req, res) { //TODO fix
@@ -151,7 +135,8 @@ app.post('/AddToWatchList', function (req, res, next) { //TODO WTF is next for; 
         sell: req.body.sell,
         quantity: req.body.quantity,
         typeOfOrder: req.body.typeOfOrder,
-        price: req.body.price
+        price: req.body.price,
+        dataOfLastUpDate: new Date() //TODO worng time zone
     });
 
     watchItem.save().then(res => {
@@ -166,7 +151,7 @@ app.post('/AddToWatchList', function (req, res, next) { //TODO WTF is next for; 
     // watchItemModel.findById(id).exec().then(doc => {
     //     console.log(doc);
     // }).catch(e => {
-    //     console.log("find item with ID: ",e);
+    //     console.log("err in find item with ID: ",e);
     // });
 
     //res.send({isAllGud: true}); //TODO
@@ -184,7 +169,11 @@ app.get('/getAllWatchListData/a', function (req, res) {
         if (docs.length <= 0) { //TODO needed?
             docs = {isEmpty: true};
         }
+        console.log(docs[0].price);
+        console.log(docs[0].sym);
+
         //    console.log("------------------------", docs);
+
         res.status(200).json(docs);
     }).catch(e => {
         // console.log(e);
@@ -192,24 +181,41 @@ app.get('/getAllWatchListData/a', function (req, res) {
         //     error: e
         // });
     });
-
 });
 
-app.delete("/sell/:id", (req, res, next) => {
-    const id = req.params.id;
-    //model is called watchItemModel
+app.post("/sell", (req, res, next) => { //TODO FUBAR
+    try {
+        console.log(" it works!" + req.body);
+        console.log(req.body.id);
 
-    watchItemModel.remove({_id: id})
-        .exec()
-        .then(result => {
+
+        //model is called watchItemModel
+
+        watchItemModel.remove({_id: id}).exec().then(result => {
+            console.log("result: " + result);
+            console.log("deleted id: " + id);
             res.status(200).json(result);
-        })
-        .catch(err => {
-            res.status(500).json({err}); // yay! es6
+        }).catch(err => {
+            res.status(500).json({error: err}); // yay! es6
             console.log("deleting error " + err);
         });
+    } catch (e) {
+
+    }
+});
 
 
+app.post('/updatePriceFor/:id', function (req, res) { //TODO
+    console.log(" it works!" + req.body);
+    console.log(req.body.id);
+
+    // // dataWithAxios = "";
+    // getDataWithAxios(req.params.id);
+    // setTimeout(function () {
+    //     //  console.log("req.params.id, is:", req.params.id);
+    //     //  console.log("req.params.id,  return is:", dataWithAxios);
+    //     res.json(dataWithAxios);
+    // }, 1000);
 });
 
 app.listen(3001); //main

@@ -44,7 +44,7 @@ class AwatchList extends React.Component {
         //     price: ""
         // });
 
-
+//TODO dont send unneeded shit
         fetch("Http://localhost:3001/AddToWatchList", {
             method: "POST",
             headers: {
@@ -67,34 +67,40 @@ class AwatchList extends React.Component {
     //     });
     // };
 
+    onDelete = (e, id) => { //TODO FUBAR
+        e.preventDefault();
+        var x = "http://localhost:3001/sell";
+
+        fetch(x, {
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(id)
+        }).then(function (response) { //TODO
+            console.log(response);
+            return response.json();
+        }).then(function (data) {
+            console.log("data: " + data)
+        }).catch(e => {
+            console.log("error: ", e)
+        });
+
+    };
+
     componentDidMount() {
         fetch('http://localhost:3001/getAllWatchListData/a')
             .then(res => res.json())
             .then(data => {
                     // console.log("data for all watch list items: ", data);
-                    // console.log(data[0]._id);
                     // console.log(data[0].sym);
                     // console.log(data[0].price);
-                    // console.log(data[0].quantity);
 
 
-                    // var arry = [];
-                    // data.forEach((e) => {
-                    //     arry.push(e);
-                    // });
                     this.setState({allDataWatchList: data});
                     // console.log(" data: "+ data);
                     // console.log("state data: "+ this.state.allDataWatchList);
-                    // {/*<tr>*/}
-                    //     {/*<td><Badge color="info"> AAPl </Badge> Apple</td>*/}
-                    //     {/*<td>$123</td>*/}
-                    //     {/*<td>$133</td>*/}
-                    //     {/*<td>111</td>*/}
-                    //     {/*<td>*/}
-                    //         {/*<Button color="danger" block={true}> Sell me</Button>*/}
-                    //     {/*</td>*/}
-                    // {/*</tr>*/}
-
                 }
             ).catch(err => {
             console.log("err: ", err)
@@ -127,16 +133,6 @@ class AwatchList extends React.Component {
 
                         <tbody>
 
-                        <tr>
-                            <td><Badge color="info"> MSFT </Badge> Microsoft</td>
-                            <td>$456</td>
-                            <td>$466</td>
-                            <td>222</td>
-                            <td>
-                                <Button color="danger" block={true}> Sell me</Button>
-                            </td>
-                        </tr>
-
                         {this.state.allDataWatchList.map((elem) => {
                             return <tr key={elem._id}>
                                 <td><Badge color="info">         {elem.sym}</Badge> {elem.sym}</td>
@@ -144,7 +140,8 @@ class AwatchList extends React.Component {
                                 <td>{elem.price}</td>
                                 <td>{elem.quantity} </td>
                                 <td>
-                                    <Button color="danger" block={true}> Sell me</Button>
+                                    <Button color="danger" block={true}
+                                            onClick={(e) => this.onDelete(e, elem._id)}> Sell me</Button>
                                 </td>
                             </tr>
 
