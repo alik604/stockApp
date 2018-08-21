@@ -79,6 +79,18 @@ class AwatchList extends React.Component {
         });
 
     };
+
+    constructor(props) {
+        super(props);
+        this.state = (
+            {
+                allDataWatchList: null
+
+            }
+        );
+    }
+
+
     // change = e => {
     //     this.props.onChange({[e.target.name]: e.target.value});
     //     this.setState({
@@ -86,20 +98,13 @@ class AwatchList extends React.Component {
     //     });
     // };
 
-    constructor(props) {
-        super(props);
-
-    }
-
     componentDidMount() {
-
         fetch('http://localhost:3001/getAllWatchListData')
             .then(res => res.json())
             .then(data => {
                     // console.log("data for all watch list items: ", data);
                     // console.log(data[0].sym);
                     // console.log(data[0].price);
-
 
                     this.setState({allDataWatchList: data});
                     // console.log(" data: "+ data);
@@ -115,6 +120,10 @@ class AwatchList extends React.Component {
     render() {
 //http://reactstrap.github.io/components/tables/
 // <button> click me </button>
+
+        if (this.state.allDataWatchList == null) {
+            return <div/>
+        }
 
 
         //under stock sym   /*<FormText>Example help text that remains unchanged.</FormText>*/

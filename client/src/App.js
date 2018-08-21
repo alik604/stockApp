@@ -18,18 +18,7 @@ export default class PersonList extends React.Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:3001/getAllWatchListData')
-            .then(res => res.json())
-            .then(data => {
-                    // console.log("data for all watch list items: ", data);
 
-
-                    this.setState({allDataWatchList: data});
-
-                }
-            ).catch(err => {
-            console.log("err: ", err)
-        });
 
     }
 
@@ -47,7 +36,7 @@ export default class PersonList extends React.Component {
             left: 'auto',
             position: 'fixed',
         };
-
+// APP -> REPEATER -> CONTENT PANE -> CHART & CARD
 // <Button variant="contained" color="primary">btn via reactstrap</Button>
 
         //  <button className="btn btn-danger float-right">Example Button floated right</button>
@@ -58,9 +47,9 @@ export default class PersonList extends React.Component {
                 <AppBar/>
 
 
-                <AwatchList watchListData={this.state.allDataWatchList}/>
+                <AwatchList/>
 
-                <Arepeater watchListData={this.state.allDataWatchList}/>
+                <Arepeater/>
 
 
                 <Button variant="fab" color="primary" style={style}> add icon to floating action btn* </Button>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Line} from 'react-chartjs-2';
+import AContentPane from './AContentPane.js';
 
 import './Achart.css';
 
@@ -8,7 +8,7 @@ class Arepeater extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            chartDataOBJ: {}
+            allDataWatchList: null
         };
     }
 
@@ -29,14 +29,25 @@ class Arepeater extends Component {
     }
 
     componentDidMount() {
+        fetch('http://localhost:3001/getAllWatchListData')
+            .then(res => res.json())
+            .then(data => {
+                    // console.log("data for all watch list items: ", data);
 
+
+                    this.setState({allDataWatchList: data});
+                     console.log(data);
+                }
+            ).catch(err => {
+            console.log("err: ", err)
+        });
 
     }
 
 
     render() {
 
-        if (this.state.dataForRepeater == null) {
+        if (this.state.allDataWatchList == null) {
             return <div/>
         }
 
@@ -45,8 +56,8 @@ class Arepeater extends Component {
                 < div className="chart">
                     <div>
 
-                        {this.state.dataForRepeater.map(function (i, index) {
-                            return < Line key={index} data={i}/>
+                        {this.state.allDataWatchList.map(function (elem,i) {
+                            return <AContentPane key = {i} sym = {elem.sym}    />
                         })}
 
                     </div>

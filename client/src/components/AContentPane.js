@@ -17,11 +17,11 @@ class AContentPane extends Component {
     }
 
     componentDidMount() {
-
+        console.log(this.props.sym);
         let date = [];
         let closing = [];
 
-        fetch('http://localhost:3001/getDataForGraph/MSFT')
+        fetch('http://localhost:3001/getDataForGraph/' + this.props.sym)
             .then(res => res.json())
             .then(chartData => {
                 for (var x in chartData["Time Series (Daily)"]) {
@@ -36,7 +36,7 @@ class AContentPane extends Component {
                         labels: date, //["2","2","2","2","4","1"]
                         datasets: [
                             {
-                                label: 'MSFT',
+                                label: '' + this.props.sym,
                                 fill: false,
                                 lineTension: 0.1,
                                 backgroundColor: 'rgba(75,192,192,0.4)',
@@ -64,7 +64,7 @@ class AContentPane extends Component {
 
         ////=================
 
-        fetch('http://localhost:3001/getCompanyData/MSFT')
+        fetch('http://localhost:3001/getCompanyData/' + this.props.sym)
             .then(res => res.json())
             .then(cardData => {
                 this.setState({cardData: cardData});
