@@ -17,7 +17,6 @@ class AContentPane extends Component {
     }
 
     componentDidMount() {
-        console.log(this.props.sym);
         let date = [];
         let closing = [];
 

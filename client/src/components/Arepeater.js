@@ -36,7 +36,7 @@ class Arepeater extends Component {
 
 
                     this.setState({allDataWatchList: data});
-                     console.log(data);
+                    //    console.log(data);
                 }
             ).catch(err => {
             console.log("err: ", err)
@@ -56,8 +56,8 @@ class Arepeater extends Component {
                 < div className="chart">
                     <div>
 
-                        {this.state.allDataWatchList.map(function (elem,i) {
-                            return <AContentPane key = {i} sym = {elem.sym}    />
+                        {this.state.allDataWatchList.map(function (elem, i) {
+                            return <AContentPane key={i} sym={elem.sym}/>
                         })}
 
                     </div>

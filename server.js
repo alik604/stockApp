@@ -129,7 +129,7 @@ app.post('/addToWatchList', function (req, res, next) { //TODO WTF is next for; 
     console.log("sell?: " + req.body.sell);
     console.log(req.body.quantity);
     console.log(req.body.typeOfOrder);
-    console.log(req.body.price);
+    console.log(req.body.priceOnBuy);
 
     //model is called watchItemModel
 
@@ -140,7 +140,8 @@ app.post('/addToWatchList', function (req, res, next) { //TODO WTF is next for; 
         sell: req.body.sell,
         quantity: req.body.quantity,
         typeOfOrder: req.body.typeOfOrder,
-        price: req.body.price,
+        priceOnBuy: req.body.priceOnBuy,
+        priceNow: req.body.priceNow,
         dataOfLastUpDate: new Date() //TODO worng time zone
     });
 
@@ -169,16 +170,43 @@ app.post('/addToWatchList', function (req, res, next) { //TODO WTF is next for; 
 
 app.get('/getAllWatchListData', function (req, res) {
     //model is called watchItemModel
-//https://www.youtube.com/watch?v=WDrU305J1yw 24mins mark
+    //https://www.youtube.com/watch?v=WDrU305J1yw 24mins mark
     watchItemModel.find().exec().then(docs => {
-        if (docs.length <= 0) { //TODO needed?
-            docs = {isEmpty: true};
+        // if (docs.length <= 0) { //TODO needed?
+        //     docs = {isEmpty: true};
+        // } else {
+        var url;
+
+        for (var i = 0; i < docs.length; i++) {
+            url = "https://api.iextrading.com/1.0/stock/" + docs[i].sym + "/price";
+
+
+            console.log(docs[i].sym);
+            /**  ^^^^
+             works as expected :)
+             */
+            axios.get(url)
+                .then((response) => {
+                    console.log(docs[i].sym);
+                    /**
+                     * Cannot read property 'sym' of undefined
+                     * :(
+                     */
+                    var query = {priceNow: response.data};
+                    docs[i].priceNow = response.data;
+                    watchItemModel.findOneAndUpdate(query, docs[i], {upsert: true}, function (err, doc) {
+                        if (err) {
+                            console.log("err: " + err);
+                        }
+                    });
+                })
+                .catch((e) => {
+                    console.log(e.message);
+                });
+            //    }
+
         }
-        console.log(docs[0].price);
-        console.log(docs[0].sym);
-
-        //    console.log("------------------------", docs);
-
+        //   console.log("--- docs: ---------------", docs);
         res.status(200).json(docs);
     }).catch(e => {
         // console.log(e);

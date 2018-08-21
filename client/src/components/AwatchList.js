@@ -16,10 +16,13 @@ class AwatchList extends React.Component {
         sell: false,
         quantity: "100",
         typeOfOrder: "market price",
-        price: "123",
+        priceOnBuy: 123,
+        priceNow: 90000,
         allDataWatchList: []
 
     };// TODO hard code values for testing
+
+
     onSubmit = e => {
         e.preventDefault();
 
@@ -41,7 +44,7 @@ class AwatchList extends React.Component {
         //     typeOfOrder: "",
         //     price: ""
         // });
-
+console.log(this.state.priceOnBuy);
 //TODO dont send unneeded shit
         fetch("Http://localhost:3001/addToWatchList", {
             method: "POST",
@@ -84,10 +87,11 @@ class AwatchList extends React.Component {
         super(props);
         this.state = (
             {
-                allDataWatchList: null
-
+                allDataWatchList: null,
+                array: []
             }
         );
+
     }
 
 
@@ -107,12 +111,27 @@ class AwatchList extends React.Component {
                     // console.log(data[0].price);
 
                     this.setState({allDataWatchList: data});
-                    // console.log(" data: "+ data);
+                    //     console.log(" data: " + data);
                     // console.log("state data: "+ this.state.allDataWatchList);
                 }
-            ).catch(err => {
+            ).then(() => {
+            this.state.allDataWatchList.forEach((allDataOBJfromFetchedDB) => {
+
+                fetch('http://localhost:3001/getCompanyData/' + allDataOBJfromFetchedDB.sym)
+                    .then(res => res.json())
+                    .then(allDataOBJFromFetchedDB => {
+
+                        //  this.setState({allDataOBJfromFetchedDB: allDataOBJfromFetchedDB});
+                        // console.log(allDataOBJFromFetchedDB.companyName);
+                        this.state.array.push(allDataOBJFromFetchedDB.companyName);
+                    }).catch((err) => console.log("company err: " + err));
+
+            });
+
+        }).catch(err => {
             console.log("err: ", err)
         });
+
 
     }
 
@@ -120,6 +139,8 @@ class AwatchList extends React.Component {
     render() {
 //http://reactstrap.github.io/components/tables/
 // <button> click me </button>
+        var a = this.state.array;
+        console.log(this.state.array[1]);
 
         if (this.state.allDataWatchList == null) {
             return <div/>
@@ -145,11 +166,11 @@ class AwatchList extends React.Component {
 
                         <tbody>
 
-                        {this.state.allDataWatchList.map((elem) => {
+                        {this.state.allDataWatchList.map((elem, i) => {
                             return <tr key={elem._id}>
                                 <td><Badge color="info">         {elem.sym}</Badge> {elem.sym}</td>
-                                <td>{elem.price}</td>
-                                <td>{elem.price}</td>
+                                <td>{elem.priceOnBuy}</td>
+                                <td>{elem.priceNow}</td>
                                 <td>{elem.quantity} </td>
                                 <td>
                                     <Button color="danger" block={true}
@@ -227,13 +248,13 @@ class AwatchList extends React.Component {
                         </FormGroup>
 
                         <FormGroup>
-                            <Label for="price">Price</Label>
+                            <Label for="priceOnBuy">Price</Label>
                             <Input type="number"
-                                   name="price"
-                                   id="price"
+                                   name="priceOnBuy"
+                                   id="priceOnBuy"
                                    placeholder="Price? (enabled IFF limit XOR stop)"
-                                   value={this.state.price}
-                                   onChange={e => this.setState({price: e.target.value})}
+                                   value={this.state.priceOnBuy}
+                                   onChange={e => this.setState({priceOnBuy: e.target.value})}
                             />
                         </FormGroup>
 

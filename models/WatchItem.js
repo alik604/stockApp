@@ -11,11 +11,11 @@ const WatchSchema = new Schema({
     },
     buy: {
         type: Boolean,
-        required: true
+        required: false //TODO
     },
     sell: {
         type: Boolean,
-        required: true
+        required: false //TODO
     },
     quantity: {
         type: Number,
@@ -23,13 +23,17 @@ const WatchSchema = new Schema({
     },
     typeOfOrder: {
         type: String,
-        required: true
+        required: false //TODO
     },
-    price: {
+    priceOnBuy: {
         type: Number,
-        required: true
+        required: false //TODO
     },
-    dataOfLastUpDate:{
+    priceNow: {
+        type: Number,
+        required: false //TODO
+    },
+    dataOfLastUpDate: {
         type: Date,
         required: false
     }
