@@ -44,7 +44,7 @@ class AwatchList extends React.Component {
         //     typeOfOrder: "",
         //     price: ""
         // });
-console.log(this.state.priceOnBuy);
+        console.log(this.state.priceOnBuy);
 //TODO dont send unneeded shit
         fetch("Http://localhost:3001/addToWatchList", {
             method: "POST",
@@ -139,8 +139,6 @@ console.log(this.state.priceOnBuy);
     render() {
 //http://reactstrap.github.io/components/tables/
 // <button> click me </button>
-        var a = this.state.array;
-        console.log(this.state.array[1]);
 
         if (this.state.allDataWatchList == null) {
             return <div/>
@@ -168,7 +166,7 @@ console.log(this.state.priceOnBuy);
 
                         {this.state.allDataWatchList.map((elem, i) => {
                             return <tr key={elem._id}>
-                                <td><Badge color="info">         {elem.sym}</Badge> {elem.sym}</td>
+                                <td><Badge color="info">         {elem.sym}</Badge> {this.state.array[i]}</td>
                                 <td>{elem.priceOnBuy}</td>
                                 <td>{elem.priceNow}</td>
                                 <td>{elem.quantity} </td>
@@ -194,12 +192,13 @@ console.log(this.state.priceOnBuy);
                     <Form>
 
                         <FormGroup>
-                            <Label for="stockSym">stock Sym</Label>
+                            <Label>stock Sym</Label>
                             <Input name="sym"
+                                   type="text"
                                    placeholder="sym here :)"
                                    value={this.state.sym}
                                    onChange={e => this.setState({sym: e.target.value})}
-                                   valid/>
+                            />
                             <FormFeedback valid>I need to think of a good validation strategy :( </FormFeedback>
                         </FormGroup>
 

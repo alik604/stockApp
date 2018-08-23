@@ -124,34 +124,48 @@ var updateStatAndSum = function () {
 app.post('/addToWatchList', function (req, res, next) { //TODO WTF is next for; how to use res effectively?
 
 
-    console.log(req.body.sym);
-    console.log("buy?: " + req.body.buy);
-    console.log("sell?: " + req.body.sell);
-    console.log(req.body.quantity);
-    console.log(req.body.typeOfOrder);
-    console.log(req.body.priceOnBuy);
+    // console.log(req.body.sym);
+    // console.log("buy?: " + req.body.buy);
+    // console.log("sell?: " + req.body.sell);
+    // console.log(req.body.quantity);
+    // console.log(req.body.typeOfOrder);
+    // console.log(req.body.priceOnBuy);
+
+
+    var url = "https://api.iextrading.com/1.0/stock/" + req.body.sym + "/price";
+    axios.get(url)
+        .then((response) => {
+
+
+            const watchItem = new watchItemModel({
+                _id: new mongoose.Types.ObjectId(),
+                sym: req.body.sym,
+                buy: req.body.buy,
+                sell: req.body.sell,
+                quantity: req.body.quantity,
+                typeOfOrder: req.body.typeOfOrder,
+                priceOnBuy: response.data,
+                priceNow: req.body.priceNow,
+                dataOfLastUpDate: new Date() //TODO worng time zone
+            });
+
+            watchItem.save().then(res => {
+                    // console.log(res)
+                    console.log("saved");
+                }
+            ).catch(err => {
+                console.log(err)
+            });
+
+
+        })
+        .catch((e) => {
+            console.log(e.message);
+        });
+
 
     //model is called watchItemModel
 
-    const watchItem = new watchItemModel({
-        _id: new mongoose.Types.ObjectId(),
-        sym: req.body.sym,
-        buy: req.body.buy,
-        sell: req.body.sell,
-        quantity: req.body.quantity,
-        typeOfOrder: req.body.typeOfOrder,
-        priceOnBuy: req.body.priceOnBuy,
-        priceNow: req.body.priceNow,
-        dataOfLastUpDate: new Date() //TODO worng time zone
-    });
-
-    watchItem.save().then(res => {
-            // console.log(res)
-            console.log("saved");
-        }
-    ).catch(err => {
-        console.log(err)
-    });
 
     // var id = "5b763bec473cb9081403a8e5";
     // watchItemModel.findById(id).exec().then(doc => {
@@ -169,50 +183,51 @@ app.post('/addToWatchList', function (req, res, next) { //TODO WTF is next for; 
 
 
 app.get('/getAllWatchListData', function (req, res) {
+    //https://stackoverflow.com/questions/13813463/how-to-avoid-access-mutable-variable-from-closure
+
     //model is called watchItemModel
     //https://www.youtube.com/watch?v=WDrU305J1yw 24mins mark
     watchItemModel.find().exec().then(docs => {
         // if (docs.length <= 0) { //TODO needed?
         //     docs = {isEmpty: true};
         // } else {
-        var url;
 
         for (var i = 0; i < docs.length; i++) {
-            url = "https://api.iextrading.com/1.0/stock/" + docs[i].sym + "/price";
 
+            (function () {
+                const d = docs[i];
+                var url = "https://api.iextrading.com/1.0/stock/" + d.sym + "/price";
+                axios.get(url)
+                    .then((response) => {
+                        // var query = {priceNow: response.data};
+                        // d.priceNow = response.data;
+                        // watchItemModel.findOneAndUpdate(query, d, {upsert: true}, function (err, doc) {
 
-            console.log(docs[i].sym);
-            /**  ^^^^
-             works as expected :)
-             */
-            axios.get(url)
-                .then((response) => {
-                    console.log(docs[i].sym);
-                    /**
-                     * Cannot read property 'sym' of undefined
-                     * :(
-                     */
-                    var query = {priceNow: response.data};
-                    docs[i].priceNow = response.data;
-                    watchItemModel.findOneAndUpdate(query, docs[i], {upsert: true}, function (err, doc) {
-                        if (err) {
-                            console.log("err: " + err);
-                        }
+                        var query = {priceNow: response.data};
+                        // d.priceNow = response.data;
+                        //     console.log(d.sym +" : "+ d._id);
+
+                        watchItemModel.findOneAndUpdate({_id: d._id}, {$set: {priceNow: response.data}}, {upsert: true}, function (err, doc) {
+
+                            if (err) {
+                                console.log("err: " + err);
+                            }
+
+                        });
+                    })
+                    .catch((e) => {
+                        console.log("err in /getAllWatchListData: " + e.message);
                     });
-                })
-                .catch((e) => {
-                    console.log(e.message);
-                });
-            //    }
-
+            })();
         }
         //   console.log("--- docs: ---------------", docs);
         res.status(200).json(docs);
+
     }).catch(e => {
         // console.log(e);
-        // res.status(500).json({
-        //     error: e
-        // });
+        res.status(500).json({
+            error: e
+        });
     });
 });
 
