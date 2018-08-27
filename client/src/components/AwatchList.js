@@ -62,21 +62,22 @@ class AwatchList extends React.Component {
             });
     };
     onDelete = (e, id) => { //TODO FUBAR
-        e.preventDefault();
-        var x = "http://localhost:3001/sell";
+     //   e.preventDefault();
+        var x = "";
 
-        fetch(x, {
+        fetch("Http://localhost:3001/sell", {
             method: "POST",
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(id)
+            body:  JSON.stringify({id:id})
+
         }).then(function (response) { //TODO
             console.log(response);
             return response.json();
         }).then(function (data) {
-            console.log("data: " + data)
+            console.log( data);
         }).catch(e => {
             console.log("error: ", e)
         });

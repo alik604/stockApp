@@ -233,18 +233,17 @@ app.get('/getAllWatchListData', function (req, res) {
 
 app.post("/sell", (req, res) => { //TODO FUBAR
     try {
-        console.log(" it works!" + req.body);
+        console.log(" it works!");
         console.log(req.body.id);
-
 
         //model is called watchItemModel
 
-        watchItemModel.remove({_id: id}).exec().then(function (result) {
+        watchItemModel.remove({_id: req.body.id}).exec().then(function (result) {
             console.log("result: " + result);
-            console.log("deleted id: " + id);
-            res.status(200).json(result);
+            console.log("deleted id: " + req.body.id);
+            res.status(200).json({result});
         }).catch(err => {
-            res.status(500).json({error: err}); // yay! es6
+            res.status(500).json({err}); // yay! es6
             console.log("deleting error " + err);
         });
     } catch (e) {
