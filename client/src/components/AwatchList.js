@@ -61,7 +61,7 @@ class AwatchList extends React.Component {
                 console.log(data)
             });
     };
-    onDelete = (e, id) => { //TODO FUBAR
+    onDelete = (e, id) => {
      //   e.preventDefault();
         var x = "";
 

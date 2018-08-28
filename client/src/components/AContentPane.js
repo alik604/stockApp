@@ -11,8 +11,10 @@ class AContentPane extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            chartData: {},
-            cardData: {}
+            date: null,
+            closing: null,
+            sym: this.props.sym,
+            cardData: null
         };
     }
 
@@ -31,34 +33,10 @@ class AContentPane extends Component {
                 closing.reverse();
 
                 this.setState({
-                    chartData: {
-                        labels: date, //["2","2","2","2","4","1"]
-                        datasets: [
-                            {
-                                label: '' + this.props.sym,
-                                fill: false,
-                                lineTension: 0.1,
-                                backgroundColor: 'rgba(75,192,192,0.4)',
-                                borderColor: 'rgba(75,192,192,1)',
-                                borderCapStyle: 'butt',
-                                borderDash: [],
-                                borderDashOffset: 0.0,
-                                borderJoinStyle: 'miter',
-                                pointBorderColor: 'rgba(75,192,192,1)',
-                                pointBackgroundColor: '#fff',
-                                pointBorderWidth: 1,
-                                pointHoverRadius: 5,
-                                pointHoverBackgroundColor: 'rgba(75,192,192,1)',
-                                pointHoverBorderColor: 'rgba(220,220,220,1)',
-                                pointHoverBorderWidth: 2,
-                                pointRadius: 1,
-                                pointHitRadius: 10,
-                                data: closing //[1, 3, 2, 4, 5, 2, 3]
-                            }
-                        ]
-                    }
-
+                    date: date,
+                    closing: closing,
                 });
+                 // console.log(this.state.date);
             }).catch((err) => console.log("data err: " + err));
 
         ////=================
@@ -72,13 +50,19 @@ class AContentPane extends Component {
     }
 
     render() {
+        if (this.state.date === null) {
+            //   console.log("not loaded!!!!")
+            // console.log(this.state.chartDataOBJ)
+            return <div/>
+        }
+
         return <div className="AContentPane-wrapper">
 
 
             <Acard cardData={this.state.cardData} className="card"/>
 
-            <Achart chartData={this.state.chartData} className="chart"/>
-            <Achart chartData={this.state.chartData} className="chart"/>
+            <Achart closing={this.state.closing} date={this.state.date} sym={this.state.sym} className="chart"/>
+            <Achart closing={this.state.closing} date={this.state.date} sym={this.state.sym} className="chart"/>
 
         </div>
     }
