@@ -28,10 +28,10 @@ class Achart extends Component {
             var sum = 0;
 
             for (var i = 0; i < 12; i++) {
-                sum += parseInt(smaBuilder[index - 12 + i]);
+                sum += parseFloat(smaBuilder[index - 12 + i]);
             }
 
-            smaBuilder[index] = (sum / 12).toFixed(2);
+            smaBuilder[index] =  parseFloat((sum / 12).toFixed(2));
             index++;
             console.log(sum); //if start @ 12, [12..99]
             //  console.log(offset);

@@ -62,7 +62,7 @@ class AwatchList extends React.Component {
             });
     };
     onDelete = (e, id) => {
-     //   e.preventDefault();
+        //   e.preventDefault();
         var x = "";
 
         fetch("Http://localhost:3001/sell", {
@@ -71,13 +71,13 @@ class AwatchList extends React.Component {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body:  JSON.stringify({id:id})
+            body: JSON.stringify({id: id})
 
         }).then(function (response) { //TODO
             console.log(response);
             return response.json();
         }).then(function (data) {
-            console.log( data);
+            console.log(data);
         }).catch(e => {
             console.log("error: ", e)
         });
@@ -104,6 +104,7 @@ class AwatchList extends React.Component {
     // };
 
     componentDidMount() {
+        var array = [];
         fetch('http://localhost:3001/getAllWatchListData')
             .then(res => res.json())
             .then(data => {
@@ -124,9 +125,10 @@ class AwatchList extends React.Component {
 
                         //  this.setState({allDataOBJfromFetchedDB: allDataOBJfromFetchedDB});
                         // console.log(allDataOBJFromFetchedDB.companyName);
-                        this.state.array.push(allDataOBJFromFetchedDB.companyName);
-                    }).catch((err) => console.log("company err: " + err));
 
+                        array.push(allDataOBJFromFetchedDB.companyName);
+                    }).catch((err) => console.log("company err: " + err));
+                this.setState({array});
             });
 
         }).catch(err => {
@@ -167,7 +169,7 @@ class AwatchList extends React.Component {
 
                         {this.state.allDataWatchList.map((elem, i) => {
                             return <tr key={elem._id}>
-                                <td><Badge color="info">         {elem.sym}</Badge> {this.state.array[i]}</td>
+                                <td><Badge color="info"> {elem.sym}</Badge> {this.state.array[i]}</td>
                                 <td>{elem.priceOnBuy}</td>
                                 <td>{elem.priceNow}</td>
                                 <td>{elem.quantity} </td>
