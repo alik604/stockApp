@@ -18,7 +18,7 @@ class Acard extends Component {
         //     });
 
 
-        console.log(this.props.cardData);
+     //   console.log(this.props.cardData);
     }
 
 

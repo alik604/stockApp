@@ -7,6 +7,391 @@ import './Achart.css';
 
 class Achart extends Component {
 
+
+    day = (e) => {
+        e.preventDefault();
+
+        let date = [];
+        let closing = [];
+        fetch('http://localhost:3001/getDataForGraph/i1/' + this.props.sym)
+            .then(res => res.json())
+            .then(chartData => {
+                console.log(chartData);
+                for (var x in chartData["Time Series (1min)"]) { //[0] was "Time Series (Daily)"
+                    closing.push(parseFloat((chartData["Time Series (1min)"][x]['4. close'])));
+                    date.push("" + x);
+                }
+                date.reverse();
+                closing.reverse();
+                this.setState({
+                        chartData: {
+                            labels: date, //["2","2","2","2","4","1"]
+                            datasets: [
+                                {
+                                    label: '' + this.props.sym,
+                                    fill: false,
+                                    lineTension: 0.1,
+                                    backgroundColor: 'rgba(75,192,192,0.4)',
+                                    borderColor: 'rgba(75,192,192,1)',
+                                    borderCapStyle: 'butt',
+                                    borderDash: [],
+                                    borderDashOffset: 0.0,
+                                    borderJoinStyle: 'miter',
+                                    pointBorderColor: 'rgba(75,192,192,1)',
+                                    pointBackgroundColor: '#fff',
+                                    pointBorderWidth: 1,
+                                    pointHoverRadius: 5,
+                                    pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+                                    pointHoverBorderColor: 'rgba(220,220,220,1)',
+                                    pointHoverBorderWidth: 2,
+                                    pointRadius: 1,
+                                    pointHitRadius: 10,
+                                    data: closing
+                                }
+                            ]
+                        }
+                    }
+                ) // end of set state
+
+            }).catch((err) => console.log("data err: " + err));
+    };
+    week = (e) => {
+        e.preventDefault();
+
+        let date = [];
+        let closing = [];
+        fetch('http://localhost:3001/getDataForGraph/i1/' + this.props.sym)
+            .then(res => res.json())
+            .then(chartData => {
+                console.log(chartData);
+                for (var x in chartData["Time Series (1min)"]) { //[0] was "Time Series (Daily)"
+                    closing.push(parseFloat((chartData["Time Series (1min)"][x]['4. close'])));
+                    date.push("" + x);
+                }
+                date.reverse();
+                closing.reverse();
+                this.setState({
+                        chartData: {
+                            labels: date, //["2","2","2","2","4","1"]
+                            datasets: [
+                                {
+                                    label: '' + this.props.sym,
+                                    fill: false,
+                                    lineTension: 0.1,
+                                    backgroundColor: 'rgba(75,192,192,0.4)',
+                                    borderColor: 'rgba(75,192,192,1)',
+                                    borderCapStyle: 'butt',
+                                    borderDash: [],
+                                    borderDashOffset: 0.0,
+                                    borderJoinStyle: 'miter',
+                                    pointBorderColor: 'rgba(75,192,192,1)',
+                                    pointBackgroundColor: '#fff',
+                                    pointBorderWidth: 1,
+                                    pointHoverRadius: 5,
+                                    pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+                                    pointHoverBorderColor: 'rgba(220,220,220,1)',
+                                    pointHoverBorderWidth: 2,
+                                    pointRadius: 1,
+                                    pointHitRadius: 10,
+                                    data: closing
+                                }
+                            ]
+                        }
+                    }
+                ) // end of set state
+
+            }).catch((err) => console.log("data err: " + err));
+    };
+    month = (e) => {
+        e.preventDefault();
+        let date = [];
+        let closing = [];
+        fetch('http://localhost:3001/getDataForGraph/d30/' + this.props.sym)
+            .then(res => res.json())
+            .then(chartData => {
+                console.log(chartData);
+                for (var x in chartData["Time Series (30min)"]) { //[0] was "Time Series (Daily)"
+                    closing.push(parseFloat((chartData["Time Series (30min)"][x]['4. close'])));
+                    date.push("" + x);
+                }
+                date.reverse();
+                closing.reverse();
+                this.setState({
+                        chartData: {
+                            labels: date, //["2","2","2","2","4","1"]
+                            datasets: [
+                                {
+                                    label: '' + this.props.sym,
+                                    fill: false,
+                                    lineTension: 0.1,
+                                    backgroundColor: 'rgba(75,192,192,0.4)',
+                                    borderColor: 'rgba(75,192,192,1)',
+                                    borderCapStyle: 'butt',
+                                    borderDash: [],
+                                    borderDashOffset: 0.0,
+                                    borderJoinStyle: 'miter',
+                                    pointBorderColor: 'rgba(75,192,192,1)',
+                                    pointBackgroundColor: '#fff',
+                                    pointBorderWidth: 1,
+                                    pointHoverRadius: 5,
+                                    pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+                                    pointHoverBorderColor: 'rgba(220,220,220,1)',
+                                    pointHoverBorderWidth: 2,
+                                    pointRadius: 1,
+                                    pointHitRadius: 10,
+                                    data: closing
+                                }
+                            ]
+                        }
+                    }
+                ) // end of set state
+
+            }).catch((err) => console.log("data err: " + err));
+    };
+    month3 = (e) => {
+        e.preventDefault();
+        let date = [];
+        let closing = [];
+        fetch('http://localhost:3001/getDataForGraph/d90/' + this.props.sym)
+            .then(res => res.json())
+            .then(chartData => {
+                console.log(chartData);
+                for (var x in chartData["Time Series (Daily)"]) { //[0] was "Time Series (Daily)"
+                    closing.push(parseFloat((chartData["Time Series (Daily)"][x]['4. close'])));
+                    date.push("" + x);
+                }
+                date.reverse();
+                closing.reverse();
+                this.setState({
+                        chartData: {
+                            labels: date, //["2","2","2","2","4","1"]
+                            datasets: [
+                                {
+                                    label: '' + this.props.sym,
+                                    fill: false,
+                                    lineTension: 0.1,
+                                    backgroundColor: 'rgba(75,192,192,0.4)',
+                                    borderColor: 'rgba(75,192,192,1)',
+                                    borderCapStyle: 'butt',
+                                    borderDash: [],
+                                    borderDashOffset: 0.0,
+                                    borderJoinStyle: 'miter',
+                                    pointBorderColor: 'rgba(75,192,192,1)',
+                                    pointBackgroundColor: '#fff',
+                                    pointBorderWidth: 1,
+                                    pointHoverRadius: 5,
+                                    pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+                                    pointHoverBorderColor: 'rgba(220,220,220,1)',
+                                    pointHoverBorderWidth: 2,
+                                    pointRadius: 1,
+                                    pointHitRadius: 10,
+                                    data: closing
+                                }
+                            ]
+                        }
+                    }
+                ) // end of set state
+
+            }).catch((err) => console.log("data err: " + err));
+    };
+    month6 = (e) => {
+        e.preventDefault();
+        let date = [];
+        let closing = [];
+        fetch('http://localhost:3001/getDataForGraph/d180/' + this.props.sym)
+            .then(res => res.json())
+            .then(chartData => {
+                console.log(chartData);
+                var i = 0;
+                for (var x in chartData["Time Series (Daily)"]) { //[0] was "Time Series (Daily)"
+                    closing.push(parseFloat((chartData["Time Series (Daily)"][x]['4. close'])));
+                    date.push("" + x);
+                    if (++i > 180)
+                        break;
+                }
+                date.reverse();
+                closing.reverse();
+                this.setState({
+                        chartData: {
+                            labels: date, //["2","2","2","2","4","1"]
+                            datasets: [
+                                {
+                                    label: '' + this.props.sym,
+                                    fill: false,
+                                    lineTension: 0.1,
+                                    backgroundColor: 'rgba(75,192,192,0.4)',
+                                    borderColor: 'rgba(75,192,192,1)',
+                                    borderCapStyle: 'butt',
+                                    borderDash: [],
+                                    borderDashOffset: 0.0,
+                                    borderJoinStyle: 'miter',
+                                    pointBorderColor: 'rgba(75,192,192,1)',
+                                    pointBackgroundColor: '#fff',
+                                    pointBorderWidth: 1,
+                                    pointHoverRadius: 5,
+                                    pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+                                    pointHoverBorderColor: 'rgba(220,220,220,1)',
+                                    pointHoverBorderWidth: 2,
+                                    pointRadius: 1,
+                                    pointHitRadius: 10,
+                                    data: closing
+                                }
+                            ]
+                        }
+                    }
+                ) // end of set state
+
+            }).catch((err) => console.log("data err: " + err));
+    };
+    year = (e) => {
+        e.preventDefault();
+        let date = [];
+        let closing = [];
+        fetch('http://localhost:3001/getDataForGraph/d180/' + this.props.sym)
+            .then(res => res.json())
+            .then(chartData => {
+                console.log(chartData);
+                var i = 0;
+                for (var x in chartData["Time Series (Daily)"]) { //[0] was "Time Series (Daily)"
+                    closing.push(parseFloat((chartData["Time Series (Daily)"][x]['4. close'])));
+                    date.push("" + x);
+                    if (++i > 360)
+                        break;
+                }
+                date.reverse();
+                closing.reverse();
+                this.setState({
+                        chartData: {
+                            labels: date, //["2","2","2","2","4","1"]
+                            datasets: [
+                                {
+                                    label: '' + this.props.sym,
+                                    fill: false,
+                                    lineTension: 0.1,
+                                    backgroundColor: 'rgba(75,192,192,0.4)',
+                                    borderColor: 'rgba(75,192,192,1)',
+                                    borderCapStyle: 'butt',
+                                    borderDash: [],
+                                    borderDashOffset: 0.0,
+                                    borderJoinStyle: 'miter',
+                                    pointBorderColor: 'rgba(75,192,192,1)',
+                                    pointBackgroundColor: '#fff',
+                                    pointBorderWidth: 1,
+                                    pointHoverRadius: 5,
+                                    pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+                                    pointHoverBorderColor: 'rgba(220,220,220,1)',
+                                    pointHoverBorderWidth: 2,
+                                    pointRadius: 1,
+                                    pointHitRadius: 10,
+                                    data: closing
+                                }
+                            ]
+                        }
+                    }
+                ) // end of set state
+
+            }).catch((err) => console.log("data err: " + err));
+    };
+    year3 = (e) => {
+        e.preventDefault();
+        let date = [];
+        let closing = [];
+        fetch('http://localhost:3001/getDataForGraph/w/' + this.props.sym)
+            .then(res => res.json())
+            .then(chartData => {
+                console.log(chartData);
+                var i = 0;
+                for (var x in chartData["Weekly Time Series"]) { //[0] was "Time Series (Daily)"
+                    closing.push(parseFloat((chartData["Weekly Time Series"][x]['4. close'])));
+                    date.push("" + x);
+                    if (++i > 156)
+                        break;
+                }
+                date.reverse();
+                closing.reverse();
+                this.setState({
+                        chartData: {
+                            labels: date, //["2","2","2","2","4","1"]
+                            datasets: [
+                                {
+                                    label: '' + this.props.sym,
+                                    fill: false,
+                                    lineTension: 0.1,
+                                    backgroundColor: 'rgba(75,192,192,0.4)',
+                                    borderColor: 'rgba(75,192,192,1)',
+                                    borderCapStyle: 'butt',
+                                    borderDash: [],
+                                    borderDashOffset: 0.0,
+                                    borderJoinStyle: 'miter',
+                                    pointBorderColor: 'rgba(75,192,192,1)',
+                                    pointBackgroundColor: '#fff',
+                                    pointBorderWidth: 1,
+                                    pointHoverRadius: 5,
+                                    pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+                                    pointHoverBorderColor: 'rgba(220,220,220,1)',
+                                    pointHoverBorderWidth: 2,
+                                    pointRadius: 1,
+                                    pointHitRadius: 10,
+                                    data: closing
+                                }
+                            ]
+                        }
+                    }
+                ) // end of set state
+
+            }).catch((err) => console.log("data err: " + err));
+    };
+    max = (e) => {
+        e.preventDefault();
+        let date = [];
+        let closing = [];
+        fetch('http://localhost:3001/getDataForGraph/m/' + this.props.sym)
+            .then(res => res.json())
+            .then(chartData => {
+                console.log(chartData);
+                var i = 0;
+                for (var x in chartData["Monthly Time Series"]) { //[0] was "Time Series (Daily)"
+                    closing.push(parseFloat((chartData["Monthly Time Series"][x]['4. close'])));
+                    date.push("" + x);
+                    if (++i > 360)
+                        break;
+                }
+                date.reverse();
+                closing.reverse();
+                this.setState({
+                        chartData: {
+                            labels: date, //["2","2","2","2","4","1"]
+                            datasets: [
+                                {
+                                    label: '' + this.props.sym,
+                                    fill: false,
+                                    lineTension: 0.1,
+                                    backgroundColor: 'rgba(75,192,192,0.4)',
+                                    borderColor: 'rgba(75,192,192,1)',
+                                    borderCapStyle: 'butt',
+                                    borderDash: [],
+                                    borderDashOffset: 0.0,
+                                    borderJoinStyle: 'miter',
+                                    pointBorderColor: 'rgba(75,192,192,1)',
+                                    pointBackgroundColor: '#fff',
+                                    pointBorderWidth: 1,
+                                    pointHoverRadius: 5,
+                                    pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+                                    pointHoverBorderColor: 'rgba(220,220,220,1)',
+                                    pointHoverBorderWidth: 2,
+                                    pointRadius: 1,
+                                    pointHitRadius: 10,
+                                    data: closing
+                                }
+                            ]
+                        }
+                    }
+                ) // end of set state
+
+            }).catch((err) => console.log("data err: " + err));
+    };
+
+
     SMA12 = (e) => {
         /*TODO FUBAR
  last 60 data points are fucked up
@@ -31,7 +416,7 @@ class Achart extends Component {
                 sum += parseFloat(smaBuilder[index - 12 + i]);
             }
 
-            smaBuilder[index] =  parseFloat((sum / 12).toFixed(2));
+            smaBuilder[index] = parseFloat((sum / 12).toFixed(2));
             index++;
             console.log(sum); //if start @ 12, [12..99]
             //  console.log(offset);
@@ -141,13 +526,14 @@ class Achart extends Component {
                 <div className="btn-group-vertical">
                     <ButtonToolbar className='buttonToolbar'>
                         <ButtonGroup className='buttonGroupTop' size="sm">
-                            <Button>1 week</Button>
-                            <Button>1 month</Button>
-                            <Button>3 month</Button>
-                            <Button>6 month</Button>
-                            <Button>1 year</Button>
-                            <Button>3 year</Button>
-                            <Button>9 year</Button>
+                            <Button onClick={(e) => this.day(e)}>1 day</Button>
+                            <Button onClick={(e) => this.week(e)}>1 week</Button>
+                            <Button onClick={(e) => this.month(e)}>1 month</Button>
+                            <Button onClick={(e) => this.month3(e)}>3 month</Button>
+                            <Button onClick={(e) => this.month6(e)}>6 month</Button>
+                            <Button onClick={(e) => this.year(e)}>1 year</Button>
+                            <Button onClick={(e) => this.year3(e)}>3 year</Button>
+                            <Button onClick={(e) => this.max(e)}> max</Button>
                         </ButtonGroup>
                         <ButtonGroup className='buttonGroupBottom' size="sm">
                             <Button onClick={(e) => this.SMA12(e)}>SMA-12</Button>

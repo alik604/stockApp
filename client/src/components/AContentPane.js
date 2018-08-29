@@ -22,11 +22,13 @@ class AContentPane extends Component {
         let date = [];
         let closing = [];
 
-        fetch('http://localhost:3001/getDataForGraph/' + this.props.sym)
+        fetch('http://localhost:3001/getDataForGraph/d30/' + this.props.sym)
             .then(res => res.json())
             .then(chartData => {
-                for (var x in chartData["Time Series (Daily)"]) {
-                    closing.push(parseFloat((chartData["Time Series (Daily)"][x]['4. close'])));
+            //    console.log(chartData);
+
+                for (var x in chartData["Time Series (30min)"]) {
+                    closing.push(parseFloat((chartData["Time Series (30min)"][x]['4. close'])));
                     date.push("" + x);
                 }
                 date.reverse();

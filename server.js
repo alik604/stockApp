@@ -72,8 +72,39 @@ require('./config/passport')(passport);
  *
  */
 
-app.get('/getDataForGraph/:id', function (req, res) {
-    var url = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" + req.params.id + "&outputsize=compact&apikey=ZYE987WC2KYKC29H";
+app.get('/getDataForGraph/:timeScale/:id', function (req, res) {
+
+    /**intraday,daily,weekly,monthly,
+     *
+     *
+     *
+     *
+     *
+     */
+
+    var timeScale = "";
+    if (req.params.timeScale == "i1")  //5 days / 1 week
+        timeScale = "TIME_SERIES_INTRADAY&interval=1min&outputsize=full"; //TODO stop being lazy
+    if (req.params.timeScale == "i5")
+        timeScale = "TIME_SERIES_INTRADAY&interval=5min&outputsize=full";
+    if (req.params.timeScale == "i15")
+        timeScale = "TIME_SERIES_INTRADAY&interval=15min&outputsize=full";
+    if (req.params.timeScale == "d30")
+        timeScale = "TIME_SERIES_INTRADAY&interval=30min&outputsize=full";
+    if (req.params.timeScale == "d90")
+        timeScale = "TIME_SERIES_DAILY&outputsize=compact";
+    if (req.params.timeScale == "d180")
+        timeScale = "TIME_SERIES_DAILY&outputsize=full";
+
+    if (req.params.timeScale == "w")
+        timeScale = "TIME_SERIES_WEEKLY";
+
+    if (req.params.timeScale == "m")
+        timeScale = "TIME_SERIES_MONTHLY";
+
+
+    var url = "https://www.alphavantage.co/query?function=" + timeScale + "&symbol=" + req.params.id + "&apikey=ZYE987WC2KYKC29H";
+    //  console.log(req.params.timeScale + " : " + url);
     axios.get(url)
         .then((response) => {
             res.json(response.data);
