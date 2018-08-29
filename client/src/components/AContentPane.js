@@ -59,7 +59,7 @@ class AContentPane extends Component {
         return <div className="AContentPane-wrapper">
 
 
-            <Acard cardData={this.state.cardData} className="card"/>
+            <Acard cardData={this.state.cardData} closing={this.state.closing} className="card"/>
 
             <Achart closing={this.state.closing} date={this.state.date} sym={this.state.sym} className="chart"/>
             <Achart closing={this.state.closing} date={this.state.date} sym={this.state.sym} className="chart"/>

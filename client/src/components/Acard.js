@@ -16,6 +16,9 @@ class Acard extends Component {
         //         this.setState({data: cardData});
         //        // console.log(this.state.data);
         //     });
+
+
+        console.log(this.props.cardData);
     }
 
 
@@ -70,7 +73,7 @@ class Acard extends Component {
                         <CardImg top width="100%"
                                  src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318×180&w=318&h=180"/>
                         <CardBody>
-                            <CardTitle> Current: $123</CardTitle>
+                            <CardTitle> Current: ${this.props.closing[99]}</CardTitle>
                             <CardSubtitle> 10% change today</CardSubtitle>
                             <CardText> {this.props.cardData.companyName}'s CEO
                                 is {this.props.cardData.CEO}, {this.props.cardData.description}</CardText>
