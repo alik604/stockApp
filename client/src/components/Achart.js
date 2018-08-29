@@ -56,14 +56,20 @@ class Achart extends Component {
             }).catch((err) => console.log("data err: " + err));
     };
     week = (e) => {
-        e.preventDefault();
-
+        try {
+            e.preventDefault();
+        } catch (e) {
+            // #goodStyle LOL
+        }
         let date = [];
         let closing = [];
         fetch('http://localhost:3001/getDataForGraph/i1/' + this.props.sym)
             .then(res => res.json())
             .then(chartData => {
                 console.log(chartData);
+                if (chartData["Information"] != null) {
+                    console.log("API limit reached!")
+                }
                 for (var x in chartData["Time Series (1min)"]) { //[0] was "Time Series (Daily)"
                     closing.push(parseFloat((chartData["Time Series (1min)"][x]['4. close'])));
                     date.push("" + x);
@@ -468,11 +474,16 @@ class Achart extends Component {
     }
 
     componentDidMount() {
+
         this.setState({
             date: this.props.date,
             closing: this.props.closing,
             sym: this.props.sym
         });
+
+        // if (this.props.isRight) {
+        //     this.week(null);
+        // }
 
 
         this.setState({

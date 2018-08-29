@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="50d45257-3986-4799-a248-345ca13da1b3" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/AContentPane.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/AContentPane.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Acard.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Acard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Achart.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Achart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -25,7 +22,7 @@
           <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/client/src/App.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="476">
+                <state relative-caret-position="544">
                   <caret line="32" column="24" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
                   <folding>
                     <element signature="e#0#26#0" expanded="true" />
@@ -37,7 +34,7 @@
           <file leaf-file-name="Arepeater.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/client/src/components/Arepeater.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="388">
+                <state relative-caret-position="796">
                   <caret line="59" column="7" selection-start-line="59" selection-start-column="7" selection-end-line="59" selection-end-column="7" />
                   <folding>
                     <element signature="e#0#39#0" expanded="true" />
@@ -46,11 +43,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="AContentPane.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="AContentPane.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/client/src/components/AContentPane.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="204">
-                  <caret line="24" column="55" selection-start-line="24" selection-start-column="55" selection-end-line="24" selection-end-column="55" />
+                <state relative-caret-position="252">
+                  <caret line="46" column="4" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="4" />
                   <folding>
                     <element signature="e#0#39#0" expanded="true" />
                   </folding>
@@ -58,11 +55,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Achart.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Achart.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/client/src/components/Achart.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="4471">
-                  <caret line="534" column="68" selection-start-line="534" selection-start-column="68" selection-end-line="534" selection-end-column="68" />
+                <state relative-caret-position="357">
+                  <caret line="70" column="51" selection-start-line="70" selection-start-column="51" selection-end-line="70" selection-end-column="51" />
                   <folding>
                     <element signature="e#0#39#0" expanded="true" />
                     <element signature="e#216#263#0" />
@@ -72,10 +69,15 @@
                     <element signature="e#5292#6777#0" />
                     <element signature="e#359#406#0" />
                     <element signature="e#7532#9017#0" />
+                    <element signature="e#427#474#0" />
                     <element signature="e#9752#11237#0" />
+                    <element signature="e#495#542#0" />
                     <element signature="e#12163#13648#0" />
+                    <element signature="e#563#610#0" />
                     <element signature="e#14487#15972#0" />
+                    <element signature="e#695#742#0" />
                     <element signature="e#16805#18290#0" />
+                    <element signature="e#220#1591#0" />
                   </folding>
                 </state>
               </provider>
@@ -112,8 +114,8 @@
           <file leaf-file-name="server.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/server.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="262">
-                  <caret line="95" column="36" selection-start-line="95" selection-start-column="36" selection-end-line="95" selection-end-column="36" />
+                <state relative-caret-position="289">
+                  <caret line="98" column="36" lean-forward="true" selection-start-line="98" selection-start-column="36" selection-end-line="98" selection-end-column="36" />
                   <folding>
                     <element signature="e#3995#4710#0" />
                   </folding>
@@ -201,9 +203,9 @@
         <option value="$PROJECT_DIR$/models/WatchItem.js" />
         <option value="$PROJECT_DIR$/client/src/components/AwatchList.js" />
         <option value="$PROJECT_DIR$/client/src/components/Acard.js" />
-        <option value="$PROJECT_DIR$/client/src/components/AContentPane.js" />
         <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/client/src/components/Achart.js" />
+        <option value="$PROJECT_DIR$/client/src/components/AContentPane.js" />
       </list>
     </option>
   </component>
@@ -399,7 +401,7 @@
       <workItem from="1534983086753" duration="10386000" />
       <workItem from="1535042434715" duration="1208000" />
       <workItem from="1535407423802" duration="16256000" />
-      <workItem from="1535566720108" duration="9063000" />
+      <workItem from="1535566720108" duration="12230000" />
     </task>
     <task id="LOCAL-00001" summary="test commit from webstorm">
       <created>1534212542160</created>
@@ -412,7 +414,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="268065000" />
+    <option name="totallyTimeSpent" value="271232000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -605,7 +607,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/node_modules/chart.js/src/core/core.scale.js" />
     <entry file="file://$PROJECT_DIR$/client/src/components/AListing.css" />
     <entry file="file://$PROJECT_DIR$/config/passport.js" />
     <entry file="file://D:/edu videos/7-1-2018 backup from desktop/NODE.JS/! The Complete Node.js Developer Course (2nd Edition)/04 Asynchronous Node.js (Weather App)/038 n-4-15-weather-promises/n-4-15-weather-promises/app-promise.js" />
@@ -737,16 +738,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="32" column="24" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/WatchItem.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
@@ -771,16 +762,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/Arepeater.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="59" column="7" selection-start-line="59" selection-start-column="7" selection-end-line="59" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/AwatchList.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -791,12 +772,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/AContentPane.js">
+    <entry file="file://$PROJECT_DIR$/client/node_modules/chart.js/src/core/core.scale.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="24" column="55" selection-start-line="24" selection-start-column="55" selection-end-line="24" selection-end-column="55" />
+        <state relative-caret-position="1253">
+          <caret line="260" selection-start-line="176" selection-end-line="260" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="32" column="24" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -813,8 +801,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/Achart.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4471">
-          <caret line="534" column="68" selection-start-line="534" selection-start-column="68" selection-end-line="534" selection-end-column="68" />
+        <state relative-caret-position="357">
+          <caret line="70" column="51" selection-start-line="70" selection-start-column="51" selection-end-line="70" selection-end-column="51" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
             <element signature="e#216#263#0" />
@@ -824,10 +812,35 @@
             <element signature="e#5292#6777#0" />
             <element signature="e#359#406#0" />
             <element signature="e#7532#9017#0" />
+            <element signature="e#427#474#0" />
             <element signature="e#9752#11237#0" />
+            <element signature="e#495#542#0" />
             <element signature="e#12163#13648#0" />
+            <element signature="e#563#610#0" />
             <element signature="e#14487#15972#0" />
+            <element signature="e#695#742#0" />
             <element signature="e#16805#18290#0" />
+            <element signature="e#220#1591#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/Arepeater.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="796">
+          <caret line="59" column="7" selection-start-line="59" selection-start-column="7" selection-end-line="59" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/AContentPane.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="46" column="4" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
