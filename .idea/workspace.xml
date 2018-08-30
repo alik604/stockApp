@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="50d45257-3986-4799-a248-345ca13da1b3" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/AContentPane.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/AContentPane.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Acard.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Acard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/AwatchList.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/AwatchList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -22,7 +21,7 @@
       <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
+            <state relative-caret-position="140">
               <caret line="32" column="24" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
@@ -31,61 +30,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Arepeater.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/components/Arepeater.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="952">
-              <caret line="59" column="7" selection-start-line="59" selection-start-column="7" selection-end-line="59" selection-end-column="7" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AContentPane.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/components/AContentPane.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="133" column="99" selection-start-line="133" selection-start-column="99" selection-end-line="133" selection-end-column="99" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Acard.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/client/src/components/Acard.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="87" column="106" lean-forward="true" selection-start-line="87" selection-start-column="106" selection-end-line="87" selection-end-column="106" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Achart.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/components/Achart.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="475" column="25" lean-forward="true" selection-start-line="475" selection-start-column="25" selection-end-line="475" selection-end-column="25" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AwatchList.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AwatchList.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/src/components/AwatchList.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="35" column="28" lean-forward="true" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="28" />
+            <state relative-caret-position="311">
+              <caret line="287" column="34" selection-start-line="287" selection-start-column="34" selection-end-line="287" selection-end-column="34" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
+                <element signature="e#663#1694#0" />
+                <element signature="e#1280#1499#0" />
+                <element signature="e#1822#2040#0" />
               </folding>
             </state>
           </provider>
@@ -94,8 +48,8 @@
       <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4675">
-              <caret line="275" column="25" selection-start-line="275" selection-start-column="25" selection-end-line="275" selection-end-column="25" />
+            <state relative-caret-position="253">
+              <caret line="152" column="23" selection-start-line="152" selection-start-column="10" selection-end-line="152" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -137,6 +91,10 @@
       <find>price</find>
       <find>axios</find>
       <find>data</find>
+      <find>sum</find>
+      <find>stat</find>
+      <find>statAn</find>
+      <find>allDataWatchList</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -176,11 +134,11 @@
         <option value="$PROJECT_DIR$/client/src/App.js" />
         <option value="$PROJECT_DIR$/client/src/components/Arepeater.js" />
         <option value="$PROJECT_DIR$/models/WatchItem.js" />
-        <option value="$PROJECT_DIR$/server.js" />
-        <option value="$PROJECT_DIR$/client/src/components/Achart.js" />
-        <option value="$PROJECT_DIR$/client/src/components/AwatchList.js" />
         <option value="$PROJECT_DIR$/client/src/components/AContentPane.js" />
+        <option value="$PROJECT_DIR$/client/src/components/Achart.js" />
+        <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/client/src/components/Acard.js" />
+        <option value="$PROJECT_DIR$/client/src/components/AwatchList.js" />
       </list>
     </option>
   </component>
@@ -377,7 +335,7 @@
       <workItem from="1535042434715" duration="1208000" />
       <workItem from="1535407423802" duration="16256000" />
       <workItem from="1535566720108" duration="12527000" />
-      <workItem from="1535582616395" duration="4323000" />
+      <workItem from="1535582616395" duration="8009000" />
     </task>
     <task id="LOCAL-00001" summary="test commit from webstorm">
       <created>1534212542160</created>
@@ -390,7 +348,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="275852000" />
+    <option name="totallyTimeSpent" value="279538000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -405,12 +363,12 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49857953" visible="true" weight="0.119072706" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49857953" visible="true" weight="0.119072706" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32897604" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32971212" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.29302832" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.21023965" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.20915033" />
       <window_info id="npm" order="2" sideWeight="0.50142044" side_tool="true" weight="0.1369863" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.14705883" />
@@ -465,7 +423,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="5" />
+      <option name="time" value="6" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -735,42 +693,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="32" column="24" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/Arepeater.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="952">
-          <caret line="59" column="7" selection-start-line="59" selection-start-column="7" selection-end-line="59" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/Achart.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="475" column="25" lean-forward="true" selection-start-line="475" selection-start-column="25" selection-end-line="475" selection-end-column="25" />
+        <state relative-caret-position="578">
+          <caret line="425" column="20" lean-forward="true" selection-start-line="425" selection-start-column="20" selection-end-line="425" selection-end-column="20" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/AwatchList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="35" column="28" lean-forward="true" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -785,19 +713,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/Arepeater.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="446">
+          <caret line="59" column="7" selection-start-line="59" selection-start-column="7" selection-end-line="59" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="32" column="24" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4675">
-          <caret line="275" column="25" selection-start-line="275" selection-start-column="25" selection-end-line="275" selection-end-column="25" />
+        <state relative-caret-position="253">
+          <caret line="152" column="23" selection-start-line="152" selection-start-column="10" selection-end-line="152" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/Acard.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="87" column="106" lean-forward="true" selection-start-line="87" selection-start-column="106" selection-end-line="87" selection-end-column="106" />
+        <state relative-caret-position="168">
+          <caret line="55" column="8" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="8" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/AwatchList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="287" column="34" selection-start-line="287" selection-start-column="34" selection-end-line="287" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#663#1694#0" />
+            <element signature="e#1280#1499#0" />
+            <element signature="e#1822#2040#0" />
           </folding>
         </state>
       </provider>

@@ -150,7 +150,22 @@ var updateStatAndSum = function () {
         });
     */
 };
+app.get('/getStatAndSum', (req, res, next) => {
 
+    StatsAndSummaryModel.find().exec().then(docs => {
+        // if (docs.length <= 0) { //TODO needed?
+        //     docs = {isEmpty: true};
+        // } else {
+
+        for (var i = 0; i < docs.length; i++) {
+
+            console.log(docs);
+        }
+        res.status(200).json({docs}); //TODO
+    });
+
+
+});
 
 app.post('/addToWatchList', function (req, res, next) { //TODO WTF is next for; how to use res effectively?
 

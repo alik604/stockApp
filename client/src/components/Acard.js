@@ -53,7 +53,7 @@ class Acard extends Component {
 
 
         if (this.props.cardData == null) {
-            console.log("not loaded!!!!")
+      //      console.log("not loaded!!!!")
             // console.log(this.state.chartDataOBJ)
             return <div/>
         }
@@ -79,7 +79,7 @@ class Acard extends Component {
 
 
                             <CardTitle> Current: ${this.state.current}</CardTitle>
-                            <CardSubtitle> {100 * (1 - (this.state.current / this.props.closing[this.props.closing.length - 1])).toFixed(2)}%
+                            <CardSubtitle> {100 * ((this.state.current / this.props.closing[this.props.closing.length - 1])-1).toFixed(4)}%
                                 change
                                 today</CardSubtitle>
 

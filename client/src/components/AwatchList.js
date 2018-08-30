@@ -18,7 +18,8 @@ class AwatchList extends React.Component {
         typeOfOrder: "market price",
         priceOnBuy: 123,
         priceNow: 90000,
-        allDataWatchList: []
+        allDataWatchList: [],
+        statAndSumData: null
 
     };// TODO hard code values for testing
 
@@ -105,6 +106,7 @@ class AwatchList extends React.Component {
 
     componentDidMount() {
         var array = [];
+        let sum = 0;
         fetch('http://localhost:3001/getAllWatchListData')
             .then(res => res.json())
             .then(data => {
@@ -112,7 +114,9 @@ class AwatchList extends React.Component {
                     // console.log(data[0].sym);
                     // console.log(data[0].price);
 
+
                     data.forEach((allDataOBJfromFetchedDB) => {
+                        sum += allDataOBJfromFetchedDB.priceNow * allDataOBJfromFetchedDB.quantity;
                         fetch('http://localhost:3001/getCompanyData/' + allDataOBJfromFetchedDB.sym)
                             .then(res => res.json())
                             .then(allDataOBJFromFetchedDB => {
@@ -124,9 +128,9 @@ class AwatchList extends React.Component {
                             }).catch((err) => console.log("company err: " + err));
 
                     });
-
-
+                    console.log(sum);
                     this.setState({
+                        sum,
                         array,
                         allDataWatchList: data
                     });
@@ -138,14 +142,23 @@ class AwatchList extends React.Component {
         });
 
 
-    }
+        fetch("Http://localhost:3001/getStatAndSum")
+            .then(function (response) { //TODO
+                return response.json();
+            })
+            .then(function (statAndSumData) {
+                this.setState({statAndSumData});
+                //   console.log(data)
+            }).catch(e => console.log(e));
+
+
+    } //compWillMount
 
 
     render() {
 //http://reactstrap.github.io/components/tables/
 // <button> click me </button>
-
-        if (this.state.allDataWatchList == null) {
+        if (this.state.allDataWatchList == null) { //   || this.state.statAndSumData == null
             return <div/>
         }
 
@@ -271,16 +284,21 @@ class AwatchList extends React.Component {
 
 
                 <div className="AwatchList-summaryAndStats">
-                    <h2> Summary and Stats</h2>
-                    <h6> starting value: $100,000</h6>
-                    <h6> current value: $110,000</h6>
-                    <h6> percentage gains: 10%</h6>
+                    <h2>Stat And Sum</h2>
+
 
                 </div>
             </div>
         );
     }
 }
+
+
+/**
+ *     <h6> starting value: ${this.state.statAndSumData.startingVal}</h6>
+ <h6> current value: ${(this.state.sum).toFixed(2)}</h6>
+ <h6> percentage gains: {this.state.statAndSumData.percentageGain}%</h6>
+ */
 
 export default AwatchList;
 
