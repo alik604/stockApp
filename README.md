@@ -7,12 +7,11 @@ Its aug 30th. I have two small items to fix. stat+sumary, and fix a bug thats do
 I have yet to deploy, add log in screen frontend, and make this multi page (for search function) 
 idk how to make multiscreen yet. i seem to have avoided the use of redux (i call that a plus)
 
-### in progress (aug 30th on hold)
-im too stupid to merge a branch with the master, yes i tried SO. (on aug 16th)
-## Branch is current.
+## in progress (since aug 30th on hold)
+###im too stupid to merge a branch with the master, yes i tried stack overflow (on aug 16th). The aug 13 Branch is current.
 
 
 
-## first 1/3 of this year i spent on android. secound 1/3 i spent on MERN (with little angular). last 1/3 ill spend on machine learning and data science
+## First 1/3 of this year i spent on android. secound 1/3 i spent on MERN (with little angular). last 1/3 ill spend on machine learning and data science
 
-### final project for that will be to use tensorflow.js (or maybe brain.js) for stock predictions, and that will be appended into this. goal is jan 3rd 2019  
+### Final project for that will be to use tensorflow.js (or maybe brain.js) for stock predictions, and that will be appended into this. goal is jan 3rd 2019  
