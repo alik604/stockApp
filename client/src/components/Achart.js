@@ -404,13 +404,13 @@ class Achart extends Component {
 
          */
         e.preventDefault();
-        console.log();
+      //  console.log();
 
         var smaBuilder = this.props.closing;
-        var offset = 12;
+    //    var offset = 12;
         var index = 12;
         console.log(smaBuilder);
-        for (var i = 0; i < 12; i++) { //cant calc
+        for (var j = 0; j < 12; j++) { //cant calc
             // smaBuilder[i] = smaBuilder[0];
         }
 

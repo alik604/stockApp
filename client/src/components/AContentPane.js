@@ -26,7 +26,7 @@ class AContentPane extends Component {
         fetch('https://api.iextrading.com/1.0/stock/' + this.props.sym + '/chart/3m')
             .then(res => res.json())
             .then(chartData => {
-                console.log(chartData);
+              //  console.log(chartData);
 
                 for (var x in chartData) {
                     closing.push(parseFloat((chartData[x]["close"])));
@@ -42,7 +42,7 @@ class AContentPane extends Component {
                 fetch('https://api.iextrading.com/1.0/stock/' + this.props.sym + '/chart/1d')
                     .then(res => res.json())
                     .then(chartData => {
-                        console.log(chartData);
+                     //   console.log(chartData);
 
                         for (var x in chartData) {
                             closing2.push(parseFloat((chartData[x]["close"])));
@@ -122,6 +122,7 @@ class AContentPane extends Component {
     }
 
     render() {
+
         if (this.state.date === null) {
             //   console.log("not loaded!!!!")
             // console.log(this.state.chartDataOBJ)
@@ -130,7 +131,7 @@ class AContentPane extends Component {
 
         return <div className="AContentPane-wrapper">
 
-            <Acard cardData={this.state.cardData} closing={this.state.closing} className="card"/>
+            <Acard cardData={this.state.cardData} closing={this.state.closing} sym={this.state.sym}  className="card"/>
 
             <Achart closing={this.state.closing} date={this.state.date} sym={this.state.sym} isRight={false}
                     className="chart"/>

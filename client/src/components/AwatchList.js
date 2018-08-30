@@ -45,6 +45,7 @@ class AwatchList extends React.Component {
         //     price: ""
         // });
         console.log(this.state.priceOnBuy);
+        this.setState({sym: this.state.sym.toLocaleUpperCase()});
 //TODO dont send unneeded shit
         fetch("Http://localhost:3001/addToWatchList", {
             method: "POST",
@@ -63,7 +64,6 @@ class AwatchList extends React.Component {
     };
     onDelete = (e, id) => {
         //   e.preventDefault();
-        var x = "";
 
         fetch("Http://localhost:3001/sell", {
             method: "POST",
@@ -112,26 +112,28 @@ class AwatchList extends React.Component {
                     // console.log(data[0].sym);
                     // console.log(data[0].price);
 
-                    this.setState({allDataWatchList: data});
+                    data.forEach((allDataOBJfromFetchedDB) => {
+                        fetch('http://localhost:3001/getCompanyData/' + allDataOBJfromFetchedDB.sym)
+                            .then(res => res.json())
+                            .then(allDataOBJFromFetchedDB => {
+
+                                //  this.setState({allDataOBJfromFetchedDB: allDataOBJfromFetchedDB});
+                                // console.log(allDataOBJFromFetchedDB.companyName);
+
+                                array.push(allDataOBJFromFetchedDB.companyName);
+                            }).catch((err) => console.log("company err: " + err));
+
+                    });
+
+
+                    this.setState({
+                        array,
+                        allDataWatchList: data
+                    });
                     //     console.log(" data: " + data);
                     // console.log("state data: "+ this.state.allDataWatchList);
                 }
-            ).then(() => {
-            this.state.allDataWatchList.forEach((allDataOBJfromFetchedDB) => {
-
-                fetch('http://localhost:3001/getCompanyData/' + allDataOBJfromFetchedDB.sym)
-                    .then(res => res.json())
-                    .then(allDataOBJFromFetchedDB => {
-
-                        //  this.setState({allDataOBJfromFetchedDB: allDataOBJfromFetchedDB});
-                        // console.log(allDataOBJFromFetchedDB.companyName);
-
-                        array.push(allDataOBJFromFetchedDB.companyName);
-                    }).catch((err) => console.log("company err: " + err));
-                this.setState({array});
-            });
-
-        }).catch(err => {
+            ).catch(err => {
             console.log("err: ", err)
         });
 
