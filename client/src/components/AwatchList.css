@@ -1,0 +1,59 @@
+Table {
+
+}
+
+.AwatchList-wrapper {
+
+}
+
+.AwatchList-table {
+    display: inline-block;
+    vertical-align: top;
+    float: left;
+    width: 40%;
+    /* height: 100%; */
+
+}
+
+.AwatchList-order {
+
+    display: inline-block;
+    vertical-align: top;
+
+    width: 39%;
+    padding-left: 10px;
+    padding-bottom: 5px;
+
+}
+
+.AwatchList-summaryAndStats {
+
+    display: inline-block;
+    vertical-align: top;
+    width: 21%;
+    float: right;
+    padding-bottom: 5px;
+    padding-left: 10px;
+
+}
+
+thead {
+    background-color: rgb(120, 175, 162);
+    /* color: white; */
+}
+
+th {
+
+    height: 45px;
+}
+
+td {
+
+    height: 25px;
+}
+
+tr {
+
+}
+
+/*tr:hover {background-color: #4f4f4f;}     /* does not override reactstrap striping */

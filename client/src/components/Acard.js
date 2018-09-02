@@ -4,26 +4,23 @@ import './Acard.css';
 
 class Acard extends Component {
 
-
     constructor(props) {
         super(props);
-        this.state = null;
-
-
+        this.state = {current: 0};
     }
 
     componentDidMount() {
-
-
-        fetch('Http://localhost:3001/MSFT/company')
+        fetch('https://api.iextrading.com/1.0/stock/' + this.props.sym + '/chart/1d')
             .then(res => res.json())
             .then(cardData => {
-
-
-                this.setState({data: cardData});
-                console.log(this.state.data);
+                this.setState({current: cardData.pop().close});
             });
 
+
+        // console.log(this.props.cardData);
+
+
+        // console.log(this.props.closing);
 
     }
 
@@ -55,21 +52,22 @@ class Acard extends Component {
         //   console.log(this.state.chartDataOBJ);
 
 
-        if (this.state == null) {
-            console.log("not loaded!!!!")
+        if (this.props.cardData == null) {
+      //      console.log("not loaded!!!!")
             // console.log(this.state.chartDataOBJ)
             return <div/>
         }
-        const info = this.state.data;
-
+        const info = this.props.cardData;
+        /*TODO color
+        https://reactstrap.github.io/components/buttons/
+        https://reactstrap.github.io/components/badge/
+         */
         return (
 
 
             <div className="wrapper ">
                 <div>
-
-
-                    <h6>{this.state.data.exchange} <Badge color="primary">{this.state.data.symbol}</Badge></h6>
+                    <h6>{this.props.cardData.exchange} <Badge color="info">{this.props.cardData.symbol}</Badge></h6>
                 </div>
 
                 <div className="AcardLeft">
@@ -78,23 +76,25 @@ class Acard extends Component {
                         <CardImg top width="100%"
                                  src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318×180&w=318&h=180"/>
                         <CardBody>
-                            <CardTitle> Current: $123</CardTitle>
-                            <CardSubtitle> 10% change today</CardSubtitle>
-                            <CardText> {this.state.data.companyName}'s CEO
-                                is {this.state.data.CEO},{this.state.data.description}</CardText>
-                            <Button onClick={() => {
-                                window.open("http://www.google.com/search?q=" + this.state.data.companyName + "&btnI");
+
+
+                            <CardTitle> Current: ${this.state.current}</CardTitle>
+                            <CardSubtitle> {100 * ((this.state.current / this.props.closing[this.props.closing.length - 1])-1).toFixed(4)}%
+                                change
+                                today</CardSubtitle>
+
+
+                            <CardText> {this.props.cardData.companyName}'s CEO
+                                is {this.props.cardData.CEO}, {this.props.cardData.description}</CardText>
+                            <Button color="info" onClick={() => {
+                                window.open("http://www.google.com/search?q=" + this.props.cardData.companyName + "&btnI");
                             }
-                            }>site</Button> <Button onClick={() => {
+                            }>site</Button> <Button color="info" onClick={() => {
                             window.open("https://www.tradingview.com/chart/?symbol=NASDAQ:" + info.symbol);
                         }}>better chart</Button>
-
                         </CardBody>
-
                     </Card>
-
                 </div>
-
             </div>
         )
 
