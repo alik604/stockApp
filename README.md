@@ -1,5 +1,5 @@
-# stockApp is a stock market simulator with 15min delayed pricing. Supports American stock markets, and limited ETFs and ETNs.
-## The aug 13 Branch is current (Issues mergings barnch and master) 
+## stockApp is a stock market simulator with 15min delayed pricing. Supports American stock markets, and limited ETFs and ETNs.
+### The aug 13 Branch is current (Issues mergings barnch and master) 
 
 stock market simulator is built on the MERN stack, does not support fundemental and technical analysis data (VWAP and P-SAR calculations are not "fun". Not to mention the api calls are restrictioned to 5 per min) 
 
@@ -9,9 +9,9 @@ I have yet to deploy, add log in screen frontend, and make this multi page (for 
 Idk how to make multi page yet. It seems that I have avoided the use of redux (I call that a plus)
 
 
-# I've achived my goal for this project. I'll use it as a tool to quickly view ~50 stock periodically.
+## I've achived my goal for this project. I'll use it as a tool to quickly view ~50 stock periodically.
 
-### I still can not merge the aug 13 branch with the master, yes i tried stack overflow (on aug 16th). The aug 13 Branch is current.
+### I still can not merge the aug 13 branch with the master, yes I tried stack overflow (on aug 16th). The aug 13 Branch is current.
 
 
 
