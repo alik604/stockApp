@@ -9,8 +9,8 @@ idk how to make multi page yet. I seem to have avoided the use of redux (I call 
 
 
 # Currently on hold. I've achived my goal for this project. Ill use it as a tool to quickly view ~50 stock periodically.
-## if I figure out how to make this multi page, I'll do so and  do some brushing up. 
-### im too stupid to merge a branch with the master, yes i tried stack overflow (on aug 16th). The aug 13 Branch is current.
+## if I figure out how to make this multi page, I'll do so and do some brushing up. 
+### I still can not merge the aug 13 branch with the master, yes i tried stack overflow (on aug 16th). The aug 13 Branch is current.
 
 
 
