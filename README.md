@@ -1,9 +1,9 @@
 ## stockApp is a stock market simulator with 15min delayed pricing. Supports American stock markets, and limited ETFs and ETNs.
 ### The aug 13 Branch is current (Issues mergings barnch and master) 
 
-stock market simulator is built on the MERN stack, does not support fundemental and technical analysis data (VWAP and P-SAR calculations are not "fun". Not to mention the api calls are restrictioned to 5 per min) 
+Stock market simulator is built on the MERN stack, does not support fundemental and technical analysis data (VWAP and P-SAR calculations are not "fun". Not to mention the api calls are restrictioned to 5 per min) 
 
-on aug 30th. I have two small items todo/fix: stat+sumary, and fix a bug thats does not show items till form is typed on. I have 2 days till my selfemposed due date. 
+On aug 30th. I have two small items todo/fix: stat+sumary, and fix a bug thats does not show items till form is typed on. I have 2 days till my selfemposed due date. 
 
 I have yet to deploy, add log in screen frontend, and make this multi page (for search function).
 Idk how to make multi page yet. It seems that I have avoided the use of redux (I call that a plus)
@@ -15,7 +15,7 @@ Idk how to make multi page yet. It seems that I have avoided the use of redux (I
 
 
 
---- note to self. keep an eye out for a 'pretty' way to reorder watchlist ---
+--- Note to self. keep an eye out for a 'pretty' way to reorder watchlist ---
 
 ----------------------------------------------------------------------------------------------------
 
