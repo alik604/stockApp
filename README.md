@@ -1,5 +1,5 @@
 # stockApp
-> Stock watch list and simulator, 15 min delayed pricing. Analysis n stocks, 2 graph per stock. Has Technical Indicators and will have some Machine Learning based predictors. Supports American stock markets, and limited ETFs
+> Stock watch list and simulator, 15 min delayed pricing. Analyze n stocks, 2 graph per stock. Has Technical Indicators and will have some Machine Learning based predictors. Supports American stock markets, and limited ETFs
 
 ## Depreciation
 
