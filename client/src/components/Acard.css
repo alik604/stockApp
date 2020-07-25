@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .wrapper {
     float: left;
 }
@@ -5,4 +6,13 @@
 .AcardLeft{
     width: 250px ;
     height: 600px ;
+=======
+.wrapper {
+    float: left;
+}
+
+.AcardLeft{
+    width: 250px ;
+    height: 600px ;
+>>>>>>> master
 }
