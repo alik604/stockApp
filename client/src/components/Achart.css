@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 canvas {
     width: 750px;
     height: 950px;
@@ -30,3 +31,37 @@ Button{
     /*  padding-right: 5px;  */
     margin-right: 40px;
 }
+=======
+canvas {
+    width: 750px;
+    height: 950px;
+}
+
+Button{
+
+
+}
+
+.chart {
+
+}
+
+.buttonToolbar {
+
+}
+
+.buttonGroupBottom {
+
+
+}
+
+.buttonGroupTop {
+
+}
+
+.wrapper {
+    float: right;
+    /*  padding-right: 5px;  */
+    margin-right: 40px;
+}
+>>>>>>> master
